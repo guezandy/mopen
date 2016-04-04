@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AppController@welcome');
 
-Route::get('/test', function() {
-	return view('profile');
-});
+Route::get('/home', 'AppController@home');
+
+Route::get('profile', 'AppController@profile');
+	
+Route::get('register', array('as' => 'register', 'uses' => 'AppController@register'));
+
+Route::get('login', array('as' => 'login', 'uses' => 'AppController@login'));
+
+Route::post('register_new_user', array('as'=> 'register_new_user', 'uses'=> 'AppController@registerNewUser'));
+
+Route::get('/user/activation/{act}', array(
+		'as' => '/user/activation',
+		'uses' => 'AppController@userActivation'
+	 ));

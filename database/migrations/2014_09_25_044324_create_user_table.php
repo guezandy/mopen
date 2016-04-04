@@ -24,7 +24,7 @@ class CreateUserTable extends Migration {
           $t->string('password');
           $t->mediumText('bio');
           $t->string('website');
-          $t->string('verified_email');
+          $t->tinyInteger('verified_email')->default(0);
           $t->string('activation_code');
           $t->string('token');
           $t->integer('token_expiry');

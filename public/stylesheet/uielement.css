@@ -10451,3 +10451,9 @@ hr {
     padding-left: 30px;
   }
 }
+
+.gridImage{
+    width:255px;
+    height:350px;
+    overflow:hidden;
+}

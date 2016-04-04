@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{asset('plugins/owl/css/owl-carousel.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/datatables/css/datatables.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/jqvmap/css/jqvmap.css')}}">
-    <!--/ Plugins stylesheet : optional -->
+    <!--/ Plugins stylesheet : optional --> 
 
     <script type="text/javascript" src="plugins/modernizr/js/modernizr.js"></script>
   </head>
@@ -42,27 +42,6 @@
           </a>
         </div>
         <div class="navbar-toolbar clearfix">
-          <ul class="nav navbar-nav navbar-left">
-            <!-- Sidebar shrink -->
-            <li class="hidden-xs hidden-sm">
-              <a href="javascript:void(0);" class="sidebar-minimize" data-toggle="minimize" title="Minimize sidebar">
-                <span class="meta">
-                  <span class="icon"></span>
-                </span>
-              </a>
-            </li>
-
-            <!-- Offcanvas left: This menu will take position at the top of template header (mobile only). Make sure that only #header have the `position: relative`, or it may cause unwanted behavior -->
-            <li class="navbar-main hidden-lg hidden-md hidden-sm">
-              <a href="javascript:void(0);" data-toggle="sidebar" data-direction="ltr" rel="tooltip" title="Menu sidebar">
-                <span class="meta">
-                  <span class="icon"></span>
-                </span>
-                  MoPen
-              </a>
-            </li>
-          </ul>
-          <!--/ END Left nav -->
 
           <!-- START navbar form -->
           <div class="navbar-form navbar-left dropdown" id="dropdown-form">
@@ -77,6 +56,11 @@
           <!-- START Right nav -->
           <ul class="nav navbar-nav navbar-right">
             <!-- Search form toggler  -->
+            @if($user != 'none')
+            <li class="pt15">
+                <span type="button" class="meta btn btn-primary">
+                <i class="ico-plus-circle"></i> Create New Post</span>
+            </li>
             <li>
               <a href="javascript:void(0);" data-toggle="dropdown" data-target="#dropdown-form">
                 <span class="meta">
@@ -86,8 +70,10 @@
                 </span>
               </a>
             </li>
+            @endif
             <!--/ Search form toggler -->
             <!-- Notification dropdown -->
+            @if($user != 'none')
             <li class="dropdown custom" id="header-dd-notification">
               <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="meta">
@@ -167,8 +153,6 @@
               <!--/ Dropdown menu -->
             </li>
             <!--/ Notification dropdown -->
-
-
             <!-- Profile dropdown -->
             <li class="dropdown profile">
               <a href="javascript:void(0);" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
@@ -221,6 +205,20 @@
               </a>
             </li>
             <!--/ Offcanvas right -->
+             @else
+            <li>
+              <a href="{{ URL::Route('register') }}">
+                <button type="button" class="btn btn-primary">
+                <i class="ico-plus-circle"></i> Signup</button>
+              </a>
+            </li>
+            <li>
+                <a href="{{ URL::Route('login') }}">
+                  <button type="button" class="btn btn-primary">
+                  <i class="ico-plus-circle"></i> Login</button>
+                </a>  
+            </li>
+            @endif
           </ul>
           <!--/ END Right nav -->
         </div>
@@ -229,52 +227,7 @@
       <!--/ END container fluid -->
     </header>
     <!--/ END Template Header -->
-    <!-- START Template Sidebar (Left) -->
-    <aside class="sidebar sidebar-left sidebar-menu">
-      <!-- START Sidebar Content -->
-      <section class="content slimscroll">
-        <h5 class="heading">Main Menu</h5>
-        <!-- START Template Navigation/Menu -->
-        <ul class="topmenu topmenu-responsive" data-toggle="menu">
-          <li>
-          <!--TODO provider home -->
-            <a href="">
-              <span class="figure">
-                <i class="ico-dashboard2"></i>
-              </span>
-              <span class="text">Algo</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <span class="figure">
-                <i class="ico-screwdriver"></i>
-              </span>
-              <span class="text">Otro</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <span class="figure">
-                <i class="ico-quill2"></i>
-              </span>
-              <span class="text">Otro mas</span>
-            </a>
-           
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <span class="figure">
-                <i class="ico-table22"></i>
-              </span>
-              <span class="text">Mas y mas</span>
-            </a>
-          </li>
-        <!--/ END Template Navigation/Menu -->
-      </section>
-      <!--/ END Sidebar Container -->
-    </aside>
-    <!--/ END Template Sidebar (Left) -->
+
     <!-- TODO  DOOOOOOSTART Template Sidebar (right) -->
     <aside class="sidebar sidebar-right">
       <!-- START Offcanvas -->
@@ -668,7 +621,22 @@
     <script type="text/javascript" src="/javascript/backend/app.js"></script>
 
     <!--Tables/ charts -->
-        <!-- Plugins and page level script : optional -->
+
+<!-- Grid of items -->
+    <script type="text/javascript" src="/plugins/magnific/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="/plugins/shuffle/js/jquery.shuffle.js"></script>
+    <script type="text/javascript" src="/javascript/backend/pages/media-gallery.js"></script>
+
+<!--Modal -->
+      <script type="text/javascript" src="/plugins/bootbox/js/bootbox.js"></script>
+    <script type="text/javascript" src="/plugins/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="/javascript/backend/components/notification.js"></script>
+
+    <!--Register -->
+        <script type="text/javascript" src="/plugins/parsley/js/parsley.js"></script>
+    <script type="text/javascript" src="/javascript/backend/pages/register.js"></script>
+
+    <!-- Plugins and page level script : optional -->
     <script type="text/javascript" src="/plugins/flot/js/jquery.flot.js"></script>
     <script type="text/javascript" src="/plugins/flot/js/jquery.flot.resize.js"></script>
     <script type="text/javascript" src="/plugins/flot/js/jquery.flot.categories.js"></script>
