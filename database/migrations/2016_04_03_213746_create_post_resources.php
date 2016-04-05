@@ -17,6 +17,7 @@ class CreatePostResources extends Migration
             $t->string('post_id');
             $t->string('res_id');
             $t->string('status');
+            $t->string('description');
         });
     }
 

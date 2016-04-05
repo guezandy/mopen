@@ -26,4 +26,7 @@ Route::post('register_new_user', array('as'=> 'register_new_user', 'uses'=> 'App
 Route::get('/user/activation/{act}', array(
 		'as' => '/user/activation',
 		'uses' => 'AppController@userActivation'
-	 ));
+	)
+);
+
+Route::get('upload', array('as'=>'upload', 'uses'=>'AppController@upload'));

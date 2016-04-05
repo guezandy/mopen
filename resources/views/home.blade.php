@@ -10,9 +10,11 @@
     <h4 class="thin text-white text-center">Algo mas cosa cosa</h4>
     <div class="text-center pt15">
     @if($user != 'none')
+    <a href="{{URL::Route('upload')}}">
     	<button type="button" class="btn btn-primary pr15">
             <i class="ico-plus-circle"></i> Create new post
         </button>
+    </a>
     @else
         <button type="button" class="btn btn-primary pr15">
                 <i class="ico-plus-circle"></i> Signup
@@ -78,6 +80,9 @@
 		        @if($user != 'none')
 		        <a href="javascript:void(0);" class="btn btn-default" title="love this post">
 		          <i class="ico-heart6"></i>
+		        </a>
+		        <a href="javascript:void(0);" class="btn btn-default" title="love this post">
+		          <i class="ico-save"></i>
 		        </a>
 		        @endif
 		      </div>

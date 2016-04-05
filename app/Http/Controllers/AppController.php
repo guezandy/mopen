@@ -136,4 +136,8 @@ class AppController extends Controller {
     public function login() {
     	return view('login');
     }
+
+    public function upload() {
+    	return view('upload')->with('user', 'none');
+    }
 }

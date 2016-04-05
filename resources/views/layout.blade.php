@@ -58,8 +58,11 @@
             <!-- Search form toggler  -->
             @if($user != 'none')
             <li class="pt15">
+              <a href="{{ URL::Route('upload')}}">
                 <span type="button" class="meta btn btn-primary">
-                <i class="ico-plus-circle"></i> Create New Post</span>
+                  <i class="ico-plus-circle"></i> Create New Post
+                </span>
+              </a>
             </li>
             <li>
               <a href="javascript:void(0);" data-toggle="dropdown" data-target="#dropdown-form">

@@ -17,6 +17,7 @@ class CreatePostCodes extends Migration
             $t->string('post_id');
             $t->string('code_id');
             $t->string('status');
+            $t->string('description');
         });
     }
 
