@@ -12,20 +12,20 @@ View live: mopen.andrew-rodriguez.com
   - [ ] user profile page (online vs offline)
   - [ ] following vs not following 
   - [ ] my profile vs someone elses
-###Search:
+*Search:
   - [ ] search for people
   - [ ] search posts
   - [ ] search results
-###Notifications:
+*Notifications:
   - [ ] interactions
-###User interactions with posts:
+*User interactions with posts:
   - [ ] Like/Comment/View
   - [ ] mark a post as related to another post
-###Post:
+*Post:
   - [ ] Single post in a page UI
 
 ##Functional:
-###User/Accounts
+*User/Accounts
   - [ ] Registration logic
   - [ ] Test register
   - [ ] Verify emails
@@ -34,7 +34,7 @@ View live: mopen.andrew-rodriguez.com
     - [ ] Change image
     - [ ] Password changing
   - [ ] Follow someone logic
-###Posts:
+*Posts:
   - [ ] Upload a post logic
     - [ ] Collaborators
   - [ ] Search posts
@@ -44,69 +44,69 @@ View live: mopen.andrew-rodriguez.com
     - [ ] Delete a resource etc etc
   - [ ] Post related to another post
   - [ ] Creating a collection of posts
-###DB:
+*DB:
   - [ ] Create php models per table
   - [X] Schame migration online
-###File storage:
+*File storage:
   - [ ] Define file structure
   - [ ] Upload files to aws
-###Upload:
+*Upload:
   - [ ] upload logic
-###User Profile:
+*User Profile:
   - [ ] Your own (rendering a certain way)
   - [ ] Others profile
     - [ ] Not following this person vs following this person
-###Landing page:
+*Landing page:
   - [ ] Populate with trending posts logic
-###Notifications:
+*Notifications:
   - [ ] Follower
   - [ ] Following
   - [ ] Likes/Comments/Views
   - [ ] Request relation (approve/deny)
-###Messaging: 
+*Messaging: 
   - [ ] hmmm
-###Collections:
+*Collections:
   - [ ] hmm
-###Settings:
+*Settings:
   - [ ] Hide code setting?
 
 
 #User flows:
 ##1. Browser (Business dude, non-techy)
-  Don't really understand how to go from a post to prototype
-  Looking to understand technology better and see whats possible
-  ###Reacts to: 
-    Images / Demos
-  ###Turned off by: 
-    Technical talk / Code
+  * Don't really understand how to go from a post to prototype
+  * Looking to understand technology better and see whats possible
+  *Reacts to: 
+    * Images / Demos
+  *Turned off by: 
+    * Technical talk / Code
 ##2. Novice programmer
-  Hoping to find examples of stuff they can easily drop into their projects
-  Looking to learn best practices
-  ###Reacts to: 
-	Good searching capabilities to find what they need
-	Explanations of things that make sense
-	Images / Demos that show what they need
-  ###Turned off by:
-    Can't find what they need (shuffle through too much information)
-    Complicated descriptions of things
+  * Hoping to find examples of stuff they can easily drop into their projects
+  * Looking to learn best practices
+  *Reacts to: 
+	* Good searching capabilities to find what they need
+	* Explanations of things that make sense
+	* Images / Demos that show what they need
+  *Turned off by:
+    * Can't find what they need (shuffle through too much information)
+    * Complicated descriptions of things
 ##3. Experienced programmer
-  Contribute to open source to get recognition
-  Looks for other like minded people to follow to keep up to date with the movers in the field
-  Looking for serious people to connect with/ communicate ideas with
-  Collaborate with other professionals
-  ###Reacts to:
-    Lots of interaction with their posts (likes/views/comments)
-    Satisfaction from feeling like helping others
+  * Contribute to open source to get recognition
+  * Looks for other like minded people to follow to keep up to date with the movers in the field
+  * Looking for serious people to connect with/ communicate ideas with
+  * Collaborate with other professionals
+  *Reacts to:
+    * Lots of interaction with their posts (likes/views/comments)
+    * Satisfaction from feeling like helping others
 ##4. Designers 
-  Stay on top of trends and shifts in the world of mobile UI
-  Saving posts in an organized way to share later
-  ###Reacts to:
-    Easy to use website
-    Search capabilities
-  ###Turned off by:
-    Too much code,
-    Not enough visuals
-    Lack of understanding
+  * Stay on top of trends and shifts in the world of mobile UI
+  * Saving posts in an organized way to share later
+  * Reacts to:
+    * Easy to use website
+    * Search capabilities
+  *Turned off by:
+    * Too much code,
+    * Not enough visuals
+    * Lack of understanding
 
 
 
