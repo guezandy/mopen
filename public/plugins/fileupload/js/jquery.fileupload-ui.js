@@ -647,6 +647,18 @@
                 .parent().addClass('disabled');
         },
 
+        _enableSnippetButton: function () {
+            this.element.find('.snippet-button input')
+                .prop('disabled', false)
+                .parent().removeClass('disabled');
+        },
+
+        _disableSnippetButton: function () {
+            this.element.find('.snippet-button input')
+                .prop('disabled', true)
+                .parent().addClass('disabled');
+        },
+
         _initTemplates: function () {
             var options = this.options;
             options.templatesContainer = this.document[0].createElement(

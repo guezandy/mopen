@@ -22,6 +22,8 @@ class CreatePosts extends Migration
             $t->integer('views');
             $t->boolean('blocked');
             $t->boolean('deleted');
+            $t->boolean('mock');
+            $t->boolean('main_mock');
         });
     }
 

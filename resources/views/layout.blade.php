@@ -20,6 +20,15 @@
     <link rel="stylesheet" href="{{asset('stylesheet/layouts/layout.css')}}">
     <link rel="stylesheet" href="{{asset('stylesheet/uielement.css')}}">
 
+    <!--STEPS  for upload-->
+    <link rel="stylesheet" href="{{asset('plugins/steps/css/jquery-steps.css')}}">
+
+    <!--File upload -->
+    <link rel="stylesheet" href="{{asset('/plugins/fileupload/css/fileupload.css')}}">
+
+    <!-- X editable -- >
+    <link rel="stylesheet" href="{{asset('plugins/xeditable/css/xeditable.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/xeditable/inputs-ext/typeaheadjs/lib/typeahead.js-bootstrap.css')}}">
     <!--CHARTS etc -->
         <!-- Plugins stylesheet : optional -->
     <link rel="stylesheet" href="{{asset('plugins/bootstrap/css/bootstrap.css')}}">
@@ -28,6 +37,8 @@
     <link rel="stylesheet" href="{{asset('plugins/owl/css/owl-carousel.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/datatables/css/datatables.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/jqvmap/css/jqvmap.css')}}">
+
+
     <!--/ Plugins stylesheet : optional --> 
 
     <script type="text/javascript" src="plugins/modernizr/js/modernizr.js"></script>
@@ -638,6 +649,40 @@
     <!--Register -->
         <script type="text/javascript" src="/plugins/parsley/js/parsley.js"></script>
     <script type="text/javascript" src="/javascript/backend/pages/register.js"></script>
+
+    <!--Upload -->
+      <script type="text/javascript" src="/plugins/steps/js/jquery-steps.js"></script>
+    <script type="text/javascript" src="/plugins/parsley/js/parsley.js"></script>
+    <script type="text/javascript" src="/plugins/inputmask/js/inputmask.js"></script>
+    <script type="text/javascript" src="/javascript/backend/forms/wizard.js"></script>
+
+    <!--file upload -->
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/load-image.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/load-image-meta.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/load-image-exif.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/load-image-ios.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/canvas-to-blob.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/vendor/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload-process.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload-image.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload-audio.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload-video.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload-validate.js"></script>
+    <script type="text/javascript" src="/plugins/fileupload/js/jquery.fileupload-ui.js"></script>
+    <script type="text/javascript" src="/javascript/backend/forms/fileupload.js"></script>
+
+    <!-- Code prettify -->
+    <script type="text/javascript" src="/plugins/prettify/js/prettify.js"></script>
+    <script type="text/javascript" src="/javascript/backend/components/typography.js"></script>
+
+    <!-- X editable -->
+    <script type="text/javascript" src="/plugins/xeditable/js/bootstrap-editable.js"></script>
+    <script type="text/javascript" src="/plugins/xeditable/inputs-ext/address/address.js"></script>
+    <script type="text/javascript" src="/plugins/xeditable/inputs-ext/typeaheadjs/lib/typeahead.js"></script>
+    <script type="text/javascript" src="/plugins/xeditable/inputs-ext/typeaheadjs/typeaheadjs.js"></script>
+    <script type="text/javascript" src="/javascript/backend/forms/xeditable.js"></script>
 
     <!-- Plugins and page level script : optional -->
     <script type="text/javascript" src="/plugins/flot/js/jquery.flot.js"></script>
