@@ -1,14 +1,14 @@
 # Coding Updates
 View live: mopen.andrew-rodriguez.com
 ##UI 
-###General: 
+* General: 
   - [ ] online vs offline
-###Login/Register:
+* Login/Register:
   - [ ] Profile image
   - [ ] Background images
-###Upload:
+* Upload:
   - [ ] Decide on upload flow
-###Profile:
+* Profile:
   - [ ] user profile page (online vs offline)
   - [ ] following vs not following 
   - [ ] my profile vs someone elses
