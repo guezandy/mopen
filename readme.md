@@ -72,14 +72,14 @@ View live: mopen.andrew-rodriguez.com
 
 
 #User flows:
-##1. Browser (Business dude, non-techy)
+1. Browser (Business dude, non-techy)
   * Don't really understand how to go from a post to prototype
   * Looking to understand technology better and see whats possible
   * Reacts to: 
     * Images / Demos
   * Turned off by: 
     * Technical talk / Code
-##2. Novice programmer
+2. Novice programmer
   * Hoping to find examples of stuff they can easily drop into their projects
   * Looking to learn best practices
   * Reacts to: 
@@ -89,7 +89,7 @@ View live: mopen.andrew-rodriguez.com
   * Turned off by:
     * Can't find what they need (shuffle through too much information)
     * Complicated descriptions of things
-##3. Experienced programmer
+3. Experienced programmer
   * Contribute to open source to get recognition
   * Looks for other like minded people to follow to keep up to date with the movers in the field
   * Looking for serious people to connect with/ communicate ideas with
@@ -97,7 +97,7 @@ View live: mopen.andrew-rodriguez.com
   * Reacts to:
     * Lots of interaction with their posts (likes/views/comments)
     * Satisfaction from feeling like helping others
-##4. Designers 
+4. Designers 
   * Stay on top of trends and shifts in the world of mobile UI
   * Saving posts in an organized way to share later
   * Reacts to:
