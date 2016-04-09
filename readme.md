@@ -2,9 +2,9 @@
 View live: mopen.andrew-rodriguez.com
 ##UI 
 ###General: 
-  online vs offline
+  - [ ] online vs offline
 ###Login/Register:
-  Profile image
+  - [ ] Profile image
   Background images
 ###Upload:
   Decide on upload flow
