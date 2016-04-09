@@ -5,70 +5,70 @@ View live: mopen.andrew-rodriguez.com
   - [ ] online vs offline
 ###Login/Register:
   - [ ] Profile image
-  Background images
+  - [ ] Background images
 ###Upload:
-  Decide on upload flow
+  - [ ] Decide on upload flow
 ###Profile:
-  user profile page (online vs offline)
-  following vs not following 
-  my profile vs someone elses
+  - [ ] user profile page (online vs offline)
+  - [ ] following vs not following 
+  - [ ] my profile vs someone elses
 ###Search:
-  search for people
-  search posts
-  search results
+  - [ ] search for people
+  - [ ] search posts
+  - [ ] search results
 ###Notifications:
-  interactions
+  - [ ] interactions
 ###User interactions with posts:
-  Like/Comment/View
-  mark a post as related to another post
+  - [ ] Like/Comment/View
+  - [ ] mark a post as related to another post
 ###Post:
-  Single post in a page UI
+  - [ ] Single post in a page UI
 
 ##Functional:
 ###User/Accounts
-  Registration logic
-  Test register
-  Verify emails
-  Login logic
-  Account settings
-    Change image
-    Password changing
-  Follow someone logic
+  - [ ] Registration logic
+  - [ ] Test register
+  - [ ] Verify emails
+  - [ ] Login logic
+  - [ ] Account settings
+    - [ ] Change image
+    - [ ] Password changing
+  - [ ] Follow someone logic
 ###Posts:
-  Upload a post logic
-    Collaborators
-  Search posts
-  Get a post logic
-  Delete a post
-  Edit a post
-    Delete a resource etc etc
-  Post related to another post
-  Creating a collection of posts
+  - [ ] Upload a post logic
+    - [ ] Collaborators
+  - [ ] Search posts
+  - [ ] Get a post logic
+  - [ ] Delete a post
+  - [ ] Edit a post
+    - [ ] Delete a resource etc etc
+  - [ ] Post related to another post
+  - [ ] Creating a collection of posts
 ###DB:
-  Create php models per table
-  Schame migration online
+  - [ ] Create php models per table
+  - [X] Schame migration online
 ###File storage:
-  Define file structure
-  Upload files to aws
+  - [ ] Define file structure
+  - [ ] Upload files to aws
 ###Upload:
-  upload logic
+  - [ ] upload logic
 ###User Profile:
-  Your own (rendering a certain way)
-  Others profile
-    Not following this person vs following this person
+  - [ ] Your own (rendering a certain way)
+  - [ ] Others profile
+    - [ ] Not following this person vs following this person
 ###Landing page:
-  Populate with trending posts logic
+  - [ ] Populate with trending posts logic
 ###Notifications:
-  Follower
-  Following
-  Likes/Comments/Views
-  Request relation (approve/deny)
+  - [ ] Follower
+  - [ ] Following
+  - [ ] Likes/Comments/Views
+  - [ ] Request relation (approve/deny)
 ###Messaging: 
-  hmmm
+  - [ ] hmmm
 ###Collections:
-  hmm
+  - [ ] hmm
 ###Settings:
-  Hide code setting?
+  - [ ] Hide code setting?
 
 
 #User flows:
