@@ -1,34 +1,78 @@
 @extends('layout')
 
 @section('content')
-<section class="jumbotron jumbotron-bg7 jumbotron mt-20 mb20 mr-20 ml-20" data-stellar-background-ratio="0.4" style="min-height:320px;">
-  <!-- pattern overlay -->
-  <div class="pattern pattern2 overlay overlay-primary"></div>
-  <!--/ pattern overlay -->
-  <div class="container" style="padding-top:8%;">
-    <h1 class="thin text-white text-center font-alt">Playground for mobile devs.</h1>
-    <h4 class="thin text-white text-center">Algo mas cosa cosa</h4>
-    <div class="text-center pt15">
-    @if($user != 'none')
-    <a href="{{URL::Route('upload')}}">
-    	<button type="button" class="btn btn-primary pr15">
-            <i class="ico-plus-circle"></i> Create new post
-        </button>
-    </a>
-    @else
-        <button type="button" class="btn btn-primary pr15">
-                <i class="ico-plus-circle"></i> Signup
-        </button>
-        <button type="button" class="btn btn-primary pr15">
-                <i class="ico-plus-circle"></i> Login
-        </button>
-    @endif    
-    </div>
-  </div>
-</section>
 <div class="page-header page-header-block">
   <div class="page-header-section">
-    <h4 class="title semibold">Browse posts</h4>
+    <h4 class="title semibold">People</h4>
+  </div>
+  <div class="page-header-section">
+    <div class="row toolbar">
+      <div class="col-md-6 col-md-offset-6">
+        <div class="has-icon">
+          <input type="search" class="form-control" name="shuffle-filter" id="shuffle-filter" placeholder="New search">
+          <i class="ico-search form-control-icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+@for($i = 0; $i < 5; $i++)
+<div class="col-xs-12 col-md-6 col-lg-4">
+<!-- START Widget Panel -->
+<div class="widget panel">
+  <!-- panel body -->
+  <div class="panel-body">
+    <ul class="list-table">
+      <li style="width:70px;">
+        <img class="img-circle img-bordered" src="../../image/avatar/avatar1.jpg" alt="" width="65px" height="65px">
+      </li>
+      <li class="text-left">
+        <h5 class="semibold ellipsis">
+          John Snow
+          <br/>
+          <small class="text-muted">@JSnow</small>
+        </h5>
+      </li>
+      <li class="text-right">
+        <button type="button" class="btn btn-info">
+          <span class="ico-twitter"></span> Follow</button>
+      </li>
+    </ul>
+    <!-- Nav section -->
+    <ul class="nav nav-section nav-justified mt15">
+      <li>
+        <div class="section">
+          <h4 class="nm">12.5k</h4>
+          <p class="nm text-muted">Followers</p>
+        </div>
+      </li>
+      <li>
+        <div class="section">
+          <h4 class="nm">1853</h4>
+          <p class="nm text-muted">Following</p>
+        </div>
+      </li>
+      <li>
+        <div class="section">
+          <h4 class="nm">3451</h4>
+          <p class="nm text-muted">Tweets</p>
+        </div>
+      </li>
+    </ul>
+    <!--/ Nav section -->
+  </div>
+  <!--/ panel body -->
+</div>
+<!--/ END Widget Panel -->
+</div>
+@endfor
+</div>
+<hr><hr>
+<div class="row">
+<div class="page-header page-header-block">
+  <div class="page-header-section">
+    <h4 class="title semibold">Posts</h4>
   </div>
   <div class="page-header-section">
     <!-- Toolbar -->
@@ -64,7 +108,8 @@
     <!--/ Toolbar -->
   </div>
 </div>
-
+</div>
+<div class="row">
 <div class="row" id="shuffle-grid">
 	@for($i = 0; $i < 10; $i++)
 	<div class="col-md-3 shuffle" data-groups='["tag1"]' data-date-created="2014-01-02" data-title="{{$i}}">
@@ -177,4 +222,8 @@
 		</div>
 	</div>
 </div>	
-@stop
+</div>
+
+
+
+@endsection

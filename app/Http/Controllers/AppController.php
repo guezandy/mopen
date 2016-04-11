@@ -5,13 +5,9 @@ use Validator;
 use Redirect;
 use App\models\User;
 
-
 class AppController extends Controller {
 
-	public function profile() {
-    	return view('profile')->with('user', 'none');
-    }
-
+//LANDING PAGE STUFF
     public function home() {
     	return view('home')->with('user', 'some'); //change to none for anonymous screen
     }
@@ -20,6 +16,7 @@ class AppController extends Controller {
     	return view('welcome');
     }
 
+//USER STUFF
     public function register() {
     	return view('register');
     }
@@ -137,7 +134,26 @@ class AppController extends Controller {
     	return view('login');
     }
 
+	public function profile() {
+    	return view('profile')->with('user', 'none');
+    }
+
+//POST STUFF
     public function upload() {
     	return view('upload')->with('user', 'none');
     }
+
+    public function post() {
+    	return view('post')->with('user', 'none');
+    }
+
+//Search stuff
+	public function search() {
+		return view('search')->with('user', 'none');
+	}    
+
+//NOTIFICATIONS:
+	public function notifications() {
+		return view('notifications')->with('user', 'none');
+	}	
 }

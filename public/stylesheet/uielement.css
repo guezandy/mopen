@@ -9430,7 +9430,7 @@ a.list-group-item:focus {
 }
 .timeline .events > .wrapper {
   list-style: none;
-  width: 45%;
+  width: 90%;
   clear: both;
 }
 .timeline .events > .wrapper.featured {

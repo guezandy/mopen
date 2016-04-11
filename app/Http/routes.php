@@ -15,6 +15,8 @@ Route::get('/', 'AppController@welcome');
 
 Route::get('/home', 'AppController@home');
 
+
+//USER
 Route::get('profile', 'AppController@profile');
 	
 Route::get('register', array('as' => 'register', 'uses' => 'AppController@register'));
@@ -29,4 +31,13 @@ Route::get('/user/activation/{act}', array(
 	)
 );
 
+//POST
+Route::get('post', array('as' => 'post', 'uses'=> 'AppController@post'));
+
 Route::get('upload', array('as'=>'upload', 'uses'=>'AppController@upload'));
+
+//SEARCH
+Route::get('search', array('as'=>'search', 'uses'=> 'AppController@search'));
+
+//NOTIFICAITONS
+Route::get('notifications', array('as'=>'notifications', 'uses'=>'AppController@notifications'));

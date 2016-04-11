@@ -18,11 +18,15 @@ View live: mopen.andrew-rodriguez.com
   - [ ] search results
 * Notifications:
   - [ ] interactions
+  - [ ] notifications page
 * User interactions with posts:
   - [ ] Like/Comment/View
-  - [ ] mark a post as related to another post
+  - [ ] mark a post as related to another post V2
 * Post:
   - [ ] Single post in a page UI
+  - [ ] Heart empty vs heart full
+* Tags Page:
+  - [ ] All posts in a tag - Landing page
 
 ##Functional:
 * User/Accounts
@@ -44,9 +48,12 @@ View live: mopen.andrew-rodriguez.com
     - [ ] Delete a resource etc etc
   - [ ] Post related to another post
   - [ ] Creating a collection of posts
+  - [ ] Relation algorithm
+  - [ ] Fork a post
 * DB:
   - [ ] Create php models per table
   - [X] Schame migration online
+  - [ ] Notifications action url
 * File storage:
   - [ ] Define file structure
   - [ ] Upload files to aws
@@ -63,13 +70,18 @@ View live: mopen.andrew-rodriguez.com
   - [ ] Following
   - [ ] Likes/Comments/Views
   - [ ] Request relation (approve/deny)
+  - [ ] Notifications need a url to act on
 * Messaging: 
   - [ ] hmmm
 * Collections:
   - [ ] hmm
 * Settings:
   - [ ] Hide code setting?
-
+  - [ ] Change profile picture
+  = [ ] Change password
+* General:
+  - [ ] configure email client (Mail Chimp)
+  - [ ] revisa cada pagina en mobile
 
 #User flows:
 1. Browser (Business dude, non-techy)
@@ -109,7 +121,7 @@ View live: mopen.andrew-rodriguez.com
     * Lack of understanding
 
 
-
+Analyze description text for tags
 
 
 

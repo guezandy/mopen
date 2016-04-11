@@ -26,6 +26,14 @@
     <!--File upload -->
     <link rel="stylesheet" href="{{asset('/plugins/fileupload/css/fileupload.css')}}">
 
+    <!-- Form Elements -->
+    <link rel="stylesheet" href="{{asset('/plugins/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/animatecss/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/selectize/css/selectize.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/jquery-ui/css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/select2/css/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('/plugins/touchspin/css/touchspin.css')}}">
+
     <!-- X editable -- >
     <link rel="stylesheet" href="{{asset('plugins/xeditable/css/xeditable.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/xeditable/inputs-ext/typeaheadjs/lib/typeahead.js-bootstrap.css')}}">
@@ -103,6 +111,7 @@
                   <span class="title">Notification
                     <span class="count"></span>
                   </span>
+                  <span class="option text-right"><a href="">View all</a></span>
                   <span class="option text-right"><a href="javascript:void(0);">Clear all</a></span>
                 </div>
                 <div class="dropdown-body slimscroll">
@@ -656,6 +665,15 @@
     <script type="text/javascript" src="/plugins/inputmask/js/inputmask.js"></script>
     <script type="text/javascript" src="/javascript/backend/forms/wizard.js"></script>
 
+    <!-- Forms 2 -->
+    <script type="text/javascript" src="/plugins/selectize/js/selectize.js"></script>
+    <script type="text/javascript" src="/plugins/jquery-ui/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/plugins/jquery-ui/js/addon/timepicker/jquery-ui-timepicker.js"></script>
+    <script type="text/javascript" src="/plugins/jquery-ui/js/jquery-ui-touch.js"></script>
+    <script type="text/javascript" src="/plugins/select2/js/select2.js"></script>
+    <script type="text/javascript" src="/plugins/touchspin/js/jquery.bootstrap-touchspin.js"></script>
+    <script type="text/javascript" src="/javascript/backend/forms/element.js"></script>
+    <!--/ Plugins and page level script : optional -->
     <!--file upload -->
     <script type="text/javascript" src="/plugins/fileupload/js/vendor/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="/plugins/fileupload/js/vendor/load-image.js"></script>
@@ -696,5 +714,18 @@
     <script type="text/javascript" src="/plugins/datatables/js/datatables-bs3.js"></script>
     <script type="text/javascript" src="/plugins/jqvmap/js/jquery.vmap.js"></script>
     <!--/ Plugins and page level script : optional -->
+
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="/plugins/owl/js/owl.carousel.js"></script>
+    <script type="text/javascript" src="/javascript/backend/components/carousel.js"></script>
+
+    <!-- Single post sortable -->
+    <script type="text/javascript" src="/plugins/jquery-ui/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascript/backend/components/sortable.js"></script>
+
+    <!--ANIMATIONS -->
+    <script type="text/javascript" src="/javascript/backend/components/animation.js"></script>
+
+
   </body>
 </html>

@@ -11,38 +11,37 @@
         <div class="col-sm-2">
 Notes:<br>
 	X-editable input fields<br>
-		Name<br>
-		Description<br>
-		Link to github<br>
+		<strike>Name<br></strike>
+		<strike>Description<br></strike>
+		<strike>Link to github<br></strike>
 		Other general information<br>
 
 	Stackable panel elements to organize files<br>
-		Group similar file extensions<br>
+		<strike>Group similar file extensions<br></strike>
 		Code prettify each <br>
-	Multiselect for choosing tags<br>
-	File upload drag and drop<br>
+	<strike>Multiselect for choosing tags<br></strike>
+	<strike>File upload drag and drop<br>
 		Organizes java/xml files<br>
-		Organizes resource files<br>
+		Organizes resource files<br></strike>
 	Optional Description of each file's functionality<br>
-	Upload images that show the thing working<br>
+	<strike>Upload images that show the thing working<br></strike>
 	Form wizard (step by step)<br>
 	Carousel for images?<br>
-	1. General info + tags + related to another posts (how)?<br>
-	2. Upload code files + resources<br>
-		Describe each file<br>
-	3. Upload screenshots of it working or video<br>
-		Describe each image<br>
+	<strike>1. General info + tags + related to another posts (how)?<br></strike>
+	<strike>2. Upload code files + resources<br></strike>
+		<strike>Describe each file<br></strike>
+	<strike>3. Upload screenshots of it working or video<br>
+		Describe each image<br></strike>
 
 	Single post page:<br>
-		Left: <br>
-			Stackable sortable code files<br>
-			Stackable sortable resources<br>
-		Right:<br>
-			Screen shots of thing working<br>
-
-		Like/Comment/Save<br>
-		Comments section<br>
-		Section for posts related to this one <br>
+		<strike>Componets: <br>
+			Code files<br>
+			resources files<br>
+      Assets<br>
+			Screen shots of thing working with descriptions<br></strike>
+		Like/<strike>Comment</strike>/Save<br>
+		<strike>Comments section<br></strike>
+		<strike>Section for posts related to this one <br></strike>
 
 JS FILES PER TYPE:<br>
 	Android file upload looks for (.java/.xml/.png)<br>
@@ -106,18 +105,34 @@ JS FILES PER TYPE:<br>
               <textarea class="form-control" rows="3" name="description" id="description" data-parsley-group="info" ></textarea>
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Select tags</label>
+            <div class="col-sm-8">
+              <select id="selectize-selectmultiple" class="form-control" placeholder="Select tags..." multiple>
+                <option value="">Select a tag...</option>
+                 <optgroup label="Android">
+                    <option value="AA">Custom Row Adapter</option>
+                    <option value="AB">Custom Gridview</option>
+                  </optgroup>
+                 <optgroup label="IOS">
+                    <option value="AC">Some ios coso</option>
+                    <option value="AD">Magic</option>
+                  </optgroup>  
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Collaborators</label>
+            <div class="col-sm-8">
+              <select id="selectize-contact" class="form-control" placeholder="Select contact..."></select>
+            </div>
+          </div>
         </div>
         <!--/ Wizard Container 1 -->
         <!-- Wizard Container 2 -->
-        <div class="wizard-title">Code</div>
+      <div class="wizard-title">Code</div>
     	<div class="wizard-container">
 	        <!-- START Panel -->
-	        <div class="panel panel-default" id="basic-uploader">
-	          <!-- panel header/heading -->
-	          <div class="panel-heading">
-	            <h3 class="panel-title">File Uploader</h3>
-	          </div>
-	          <!--/ panel header/heading -->
 	          <!-- panel body -->
 	          <div class="panel-body">
 	            <!-- error message -->
@@ -180,15 +195,16 @@ JS FILES PER TYPE:<br>
                   <!-- panel body with collapse capabale -->
                   <div class="panel-collapse pull out">
                     <div class="panel-body">
-                      <a href="#" id="xe_comments" data-type="textarea" data-pk="1">awesome comment!</a>
-						
-            <pre class="prettyprint linenums">
-<a href="#" id="xe_comments" data-type="textarea" data-pk="2">public class HelloWorld {
+                      <a href="#" id="xe_comments" data-type="textarea" data-pk="1">awesome comment!</a>						
+                    <pre class="prettyprint linenums">
+                      <a href="#" id="xe_comments" data-type="textarea" data-pk="2">
+public class HelloWorld {
 	String s = "yes";
 }
-</a>
-						</pre>
+                      </a>
+        						</pre>
                     </div>
+                    <textarea class="form-control form-control-minimal" rows="3" placeholder="Describe this file"></textarea>
                   </div>
                   <!--/ panel body with collapse capabale -->
                 </div>
@@ -199,7 +215,7 @@ JS FILES PER TYPE:<br>
                 <div class="panel panel-default">
                   <!-- panel heading/header -->
                   <div class="panel-heading">
-                    <h3 class="panel-title">HelloWorld.java</h3>
+                    <h3 class="panel-title">HelloWorld.xml</h3>
                     <!-- panel toolbar -->
                     <div class="panel-toolbar text-right">
                       <!-- option -->
@@ -250,7 +266,7 @@ JS FILES PER TYPE:<br>
                 </div>
                 <!--/ END panel -->
                 </div>
-			</div>
+			     </div>
 	          <table class="table table-striped table-hovered upload-lists">
 	            <tbody></tbody>
 	          </table>
@@ -266,104 +282,82 @@ JS FILES PER TYPE:<br>
 	          <table class="table table-striped table-hovered upload-asset">
 	            <tbody></tbody>
 	          </table>
-	        </div>
 	        <!--/ END Panel -->
     	</div>
         <!--/ Wizard Container 2 -->
         <!-- Wizard Container 3 -->
-        <div class="wizard-title">Images</div>
-        <div class="wizard-container">
-          <div class="form-group">
-            <div class="col-md-12">
-              <h5 class="semibold text-primary nm">Proceed to payment</h5>
-              <p class="text-muted nm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="wizard-title">Images/Video</div>
+          <div class="wizard-container">
+            <div class="form-group">
+              <div class="col-md-12">
+                <h5 class="semibold text-primary nm">Describe you post woot</h5>
+                <p class="text-muted nm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Card number
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-5">
-              <input type="text" name="card-number" class="form-control" data-parsley-group="payment" data-parsley-required data-mask="9999-9999-9999-9999">
-            </div>
-            <div class="col-sm-5">
-              <input type="text" name="security-code" class="form-control" placeholder="Security code" data-parsley-group="payment" data-parsley-required data-parsley-maxlength="3" data-parsley-type="integer">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Name on card
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-5">
-              <input type="text" name="card-holder" class="form-control" data-parsley-group="payment" data-parsley-required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Expiration
-              <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-10">
+              <div class="mb15">
+                <a class="btn btn-primary fileinput-button">
+                  <i class="glyphicon glyphicon-plus"></i>
+                  <span>Add files...</span>
+                  <!-- The file input field used as target for the file upload widget -->
+                  <input type="file" name="files[]" multiple>
+                </a>
+              </div>
+            <div class="form-group">
               <div class="row">
+              @for($i = 0; $i < 3; $i++)
                 <div class="col-sm-4">
-                  <select name="month" class="form-control" data-parsley-group="payment" data-parsley-required>
-                    <option value="">Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                  </select>
+                  <!-- image post -->
+                  <div class="panel">
+                    <!-- User info -->
+                    <ul class="list-table pa15">
+                      <li class="text-left">
+                        <textarea class="form-control form-control-minimal" rows="1" placeholder="Image Title"></textarea>
+                      </li>
+                      <li class="text-right" style="width:60px;">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-link dropdown-toggle text-default" data-toggle="dropdown">
+                            <i class="ico-menu2"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="javascript:void(0);" class="text-danger">Delete image</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                    <!--/ User info -->
+                    <!-- Thumbnail -->
+                    <div class="thumbnail thumbnail-album">
+                      <!-- media -->
+                      <div class="media">
+                        <!-- indicator -->
+                        <div class="indicator">
+                          <span class="spinner"></span>
+                        </div>
+                        <!--/ indicator -->
+                        <img data-toggle="unveil" src="{{asset('image/background/400x250/placeholder.jpg') }}" data-src="{{asset('image/background/400x250/background11.jpg') }}" alt="Cover" width="100%">
+                      </div>
+                      <!--/ media -->
+                    </div>
+                    <!--/ Thumbnail -->
+                    <!-- Toolbar -->
+                    <div class="panel-toolbar-wrapper">
+                      <div class="panel-toolbar">
+                        <input type="checkbox">
+                        <a href="javascript:void(0);" class="semibold text-default">Main Image</a>
+                        <span class="text-muted mr5 ml5">&#8226;</span>
+                      </div>
+                    </div>
+                    <!--/ Toolbar -->
+                    <!-- Comment box -->
+                    <textarea class="form-control form-control-minimal" rows="3" placeholder="Describe this image"></textarea>
+                    <!--/ Comment box -->
+                  </div>
                 </div>
-                <div class="col-sm-4">
-                  <select name="year" class="form-control" data-parsley-group="payment" data-parsley-required>
-                    <option value="">Year</option>
-                    <option value="1">2014</option>
-                    <option value="2">2015</option>
-                    <option value="3">2016</option>
-                    <option value="4">2017</option>
-                    <option value="5">2018</option>
-                    <option value="6">2019</option>
-                    <option value="7">2020</option>
-                  </select>
-                </div>
+                @endfor
               </div>
             </div>
           </div>
-        </div>
         <!--/ Wizard Container 3 -->
-        <!-- Wizard Container 4 -->
-        <div class="wizard-title">Summary</div>
-        <div class="wizard-container">
-          <div class="form-group">
-            <div class="col-md-12">
-              <h5 class="semibold text-primary nm">Checkout</h5>
-              <p class="text-muted nm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Term Of Services</label>
-            <div class="col-md-10">
-              <span class="checkbox custom-checkbox">
-                <input type="checkbox" name="checkbox-tos" id="checkbox-tos">
-                <label for="checkbox-tos">&nbsp;&nbsp;I agree with this site <a href="javascript:void(0);">Term Of Services</a></label>
-              </span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Notes</label>
-            <div class="col-md-10">
-              <textarea class="form-control" rows="5" placeholder="Add some notes!"></textarea>
-            </div>
-          </div>
-        </div>
-        <!-- Wizard Container 4 -->
       </form>
       <!--/ END Form Wizard -->
     </div>
