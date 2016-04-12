@@ -33,6 +33,7 @@
             </div>
             <!--/ Brand -->
             <!-- Social button -->
+            <!--
             <ul class="list-table">
               <li>
                 <button type="button" class="btn btn-block btn-facebook">Connect with
@@ -44,17 +45,20 @@
                   <i class="ico-twitter2 ml5"></i>
                 </button>
               </li>
-            </ul>
+            </ul> -->
             <!-- Social button -->
             <hr>
             <!-- horizontal line -->
             <!-- Login form -->
-            <form class="panel" name="form-login" action="">
+            <form class="panel" name="" action="{{URL::Route('verifyLogin')}}" method="post">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="panel-body">
                 <!-- Alert message -->
+                @if(isset($message)) 
                 <div class="alert alert-warning">
-                  <span class="semibold">Note :</span>&nbsp;&nbsp;Just put anything and hit 'sign-in' button.
+                  <span class="semibold">Note: </span>{{$message}}
                 </div>
+                @endif                
                 <div class="form-group">
                   <div class="form-stack has-icon pull-left">
                     <input name="username" type="text" class="form-control input-lg" placeholder="Username" data-parsley-errors-container="#error-container" data-parsley-error-message="Please fill in your username / email" data-parsley-required>
@@ -73,7 +77,7 @@
                     <div class="col-xs-6">
                     </div>
                     <div class="col-xs-6 text-right">
-                      <a href="javascript:void(0);">Forgot password?</a>
+                      <a href="{{route('forgot_password')}}">Forgot password?</a>
                     </div>
                   </div>
                 </div>

@@ -8817,7 +8817,7 @@ a.thumbnail.active {
 }
 .page-header.page-header-block {
   padding: 14px 20px 16px 20px;
-  background-color: #fbfcfc;
+  /*background-color: #fbfcfc;*/
 }
 .page-header.page-header-block .title {
   margin: 0px;
@@ -8839,7 +8839,7 @@ a.thumbnail.active {
     margin-top: 0px;
   }
   .page-header .toolbar {
-    text-align: right;
+    text-align: center;
     margin-bottom: 0px;
   }
   .page-header .toolbar .toolbar-label {

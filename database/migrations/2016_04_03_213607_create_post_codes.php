@@ -14,6 +14,8 @@ class CreatePostCodes extends Migration
     {
         //
         Schema::create('post_codes', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_id');
             $t->string('code_id');
             $t->string('status');

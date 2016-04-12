@@ -14,9 +14,11 @@ class CreateSavePost extends Migration
     {
         //
         Schema::create('save_post', function($t) {
+            $t->increments('id');
             $t->string('username');
             $t->string('post_id');
             $t->string('status');
+            $t->timestamps();
         });
     }
 

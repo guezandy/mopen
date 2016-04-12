@@ -14,8 +14,10 @@ class CreatePostUsers extends Migration
     {
         //
         Schema::create('post_users', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_id');
-            $t->string('username');
+            $t->string('user_id');
             $t->string('status');
         });
     }

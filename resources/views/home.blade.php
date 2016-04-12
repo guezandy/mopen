@@ -27,12 +27,13 @@
   </div>
 </section>
 <div class="page-header page-header-block">
-  <div class="page-header-section">
+<!--   <div class="page-header-section">
     <h4 class="title semibold">Browse posts</h4>
-  </div>
+  </div> -->
   <div class="page-header-section">
     <!-- Toolbar -->
     <div class="toolbar">
+       Top Tags:
       <div class="btn-group" id="shuffle-filter">
         <button type="button" class="btn btn-default" data-group="tag1">Tag1</button>
         <button type="button" class="btn btn-default" data-group="tag2">Tag2</button>
@@ -43,12 +44,13 @@
         <button type="button" class="btn btn-default" data-group="tag2">Tag2</button>
         <button type="button" class="btn btn-default" data-group="tag2">Tag2</button>
         <button type="button" class="btn btn-default" data-group="tag2">Tag2</button>
+        <button type="button" class="btn btn-default" data-group="tag2">Tag2</button>        
       </div>
     </div>
     <!--/ Toolbar -->
   </div>
+  <!--
   <div class="page-header-section">
-    <!-- Toolbar -->
     <div class="row toolbar clearfix">
       <div class="col-sm-6">
         <span class="toolbar-label semibold mr5">Sort : </span>
@@ -61,8 +63,8 @@
         </select>
       </div>
     </div>
-    <!--/ Toolbar -->
   </div>
+  -->
 </div>
 
 <div class="row" id="shuffle-grid">
@@ -118,7 +120,7 @@
 		      </div>
 		    </li>
 		    <li>
-		      <p class="nm"><a href="javascript:void(0);" class="semibold">{{10-$i+3}} people</a> love this</p>
+		      <p class="nm"><a href="" class="semibold">View: 10 | Save: 20</p>
 		    </li>
 		  </ul>
 		</div>

@@ -3,6 +3,27 @@ namespace App\Http\Controllers;
 use Input;
 use Validator;
 use Redirect;
+use Mail;
+use Hash;
+use URL;
+use View;
+use Session;
+
+use App\models\Admin;
+use App\models\Code;
+use App\models\Follower;
+use App\models\Post;
+use App\models\PostCode;
+use App\models\PostComment;
+use App\models\PostLike;
+use App\models\PostPost;
+use App\models\PostResource;
+use App\models\PostTag;
+use App\models\PostUser;
+use App\models\Resource;
+use App\models\SavePost;
+use App\models\Setting;
+use App\models\Tag;
 use App\models\User;
 
 class AppController extends Controller {
@@ -18,6 +39,7 @@ class AppController extends Controller {
 
 //USER STUFF
     public function register() {
+    	$mailchimp = app('Mailchimp');
     	return view('register');
     }
 
@@ -30,7 +52,7 @@ class AppController extends Controller {
 		$password = Input::get('password');
 		$confirm_password = Input::get('retype-password');
 
-		$validator = Validator::make(
+		$info_validator = Validator::make(
 			array(
 				'full_name' => $full_name,
 				'username' => $username,
@@ -44,26 +66,21 @@ class AppController extends Controller {
 				'full_name' => 'required'
 			)
 		);
-		$validator1 = Validator::make(
+		$email_validator = Validator::make(
 			array(
 				'email' => $email,
-				),
+			),
 			array(
 				'email' => 'required|email'
-				)
+			)
 		);
 
-		if ($validator->fails()) {
-			//return "V1";
-			$error_messages = $validator->messages();
+		if ($info_validator->fails()) {
+			$error_messages = $info_validator->messages();
 			return Redirect::to('register')->with('message', 'Please Fill all the fields.');	
-		} else if ($validator1->fails()) {
-						return "V2";
-
+		} else if ($email_validator->fails()) {
 			return Redirect::to('register')->with('message', 'Please Enter email correctly.');					
 		} else if($password != $confirm_password) {
-						return "V3";
-
 			return Redirect::to('register')->with('message', 'Passwords don\'t match.');					
 		} else {
 			if(User::where('username',$username)->count() == 0) {
@@ -88,8 +105,8 @@ class AppController extends Controller {
 				$email_data['url'] = $url;
 
 			    // Mail::send('emails.userregister', array('email_data' => $email_data), function ($message) use ($email, $subject) {
-		     //    	$message->to($email)->subject($subject);
-		     //    });
+			     //$message->to($email)->subject($subject);
+			     //});
 					
 				return Redirect::to('login')->with('message', 'You have successfully registered. Please verify your Email to Login')->with('message_type', 'success');
 				
@@ -130,17 +147,99 @@ class AppController extends Controller {
 		}
 	}
 
+	public function forgotPassword() {
+		return "TODO: forgot apssword page that calls reset password";
+	}
+//TODO: TEST
+	public function resetPassword()
+	{
+		$email = Input::get('email');
+		$user = User::where('email',$email)->first();
+		if($user)
+		{
+			$new_password = time();
+			$new_password .= rand();
+			$new_password = sha1($new_password);
+			$new_password = substr($new_password,0,8);
+			$user->password = Hash::make($new_password);
+			$user->save();
+
+			// send email
+			$subject = "Your New Password";
+			$email_data = array();
+			$email_data['password']  = $new_password;
+//TODO SEND EMAIL;
+			$subject = "Your New Password";
+			$email_data = array();
+			$email_data['password']  = $new_password;
+			$send_to = $user->email;
+/*
+		    Mail::send('emails.forgotpassword', array('email_data' => $email_data), function ($message) use ($send_to, $subject) {
+            	//$message->from('andrew.rodriguez007@gmail.com', 'Laravel');
+            	$message->to('andrew.rodriguez007@gmail.com')->subject($subject);
+            });*/
+			//send_email($user->id,'user',$email_data,$subject,'forgotpassword');
+
+			return Redirect::to('login')->with('success', 'password reseted successfully. Please check your inbox for new password.');
+
+		}
+		else{
+			return Redirect::to('login')->with('error', 'This email ID is not registered with us');
+		}
+	}
+
     public function login() {
     	return view('login');
     }
 
+    public function verifyLogin()
+	{
+		$username = Input::get('username');
+		$password = Input::get('password');
+		$user = User::where('username', '=', $username)->first();
+		if($user){
+			if($user->verified_email==1){
+				if ($user && Hash::check($password, $user->password)) {
+					Session::put('user_id', $user->id);
+					Session::put('user_name', $user->username);
+					Session::put('user_pic', $user->image);	
+					return Redirect::to('home');
+				}
+				else{
+					return view('login')->with('message', 'Invalid email and password');
+				}
+			}else{
+				return view('login')->with('message','Please verify your email');
+			}
+		} else{
+			return view('login')->with('message','Invalid email');
+		}
+	}
+
 	public function profile() {
     	return view('profile')->with('user', 'none');
     }
+    public function logout()
+	{
+		Session::flush();
+		return Redirect::to('login');
+	}
 
 //POST STUFF
     public function upload() {
     	return view('upload')->with('user', 'none');
+    }
+
+    public function uploadNewPost() {
+    	return "IN THIS";
+    	$type = Input::get('type');
+		$title = Input::get('title');
+		$vc = Input::get('vc');
+		$description = Input::get('description');
+		$tags = Input::get('tags');
+		$collaborators = Input::get('collaborators');
+
+		return $type;
     }
 
     public function post() {

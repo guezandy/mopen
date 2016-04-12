@@ -13,12 +13,14 @@ class CreateCode extends Migration
     public function up()
     {
         Schema::create('code', function($t) {
+            $t->increments('id');
             $t->string('code_id');
             $t->string('format');
             $t->string('post_id');
             $t->string('file_name');
             $t->string('status');
             $t->longText('code');
+            $t->timestamps();
         });
     }
 

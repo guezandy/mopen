@@ -58,7 +58,7 @@ JS FILES PER TYPE:<br>
       </div>
       <!--/ panel heading/header -->
       <!-- START Form Wizard -->
-      <form class="form-horizontal form-bordered" action="" id="wizard-validate">
+      <form class="form-horizontal form-bordered" id="wizard-validate" action="{{URL::Route('uploadNewPost')}}" method="post">
         <!-- Wizard Container 1 -->
         <div class="wizard-title">Basic Info</div>
         <div class="wizard-container">
@@ -73,7 +73,7 @@ JS FILES PER TYPE:<br>
               <span class="text-danger">*</span>
             </label>
             <div class="col-sm-8">
-              <select class="form-control" name="type" id="select-type" data-parsley-group="info" data-parsley-required>
+              <select class="form-control" name="type" id="type" data-parsley-group="info" data-parsley-required>
                 <option value="">Please choose</option>
                 <option value="1">Android (Native)</option>
                 <option value="2">Android (Xamarian)</option>
@@ -108,7 +108,7 @@ JS FILES PER TYPE:<br>
           <div class="form-group">
             <label class="col-sm-2 control-label">Select tags</label>
             <div class="col-sm-8">
-              <select id="selectize-selectmultiple" class="form-control" placeholder="Select tags..." multiple>
+              <select id="selectize-selectmultiple" name="tags" class="form-control" placeholder="Select tags..." multiple>
                 <option value="">Select a tag...</option>
                  <optgroup label="Android">
                     <option value="AA">Custom Row Adapter</option>
@@ -124,7 +124,7 @@ JS FILES PER TYPE:<br>
           <div class="form-group">
             <label class="col-sm-2 control-label">Collaborators</label>
             <div class="col-sm-8">
-              <select id="selectize-contact" class="form-control" placeholder="Select contact..."></select>
+              <select id="selectize-contact" class="form-control" name="collaborators" placeholder="Select contact..."></select>
             </div>
           </div>
         </div>

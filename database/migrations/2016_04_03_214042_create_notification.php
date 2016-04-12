@@ -14,10 +14,12 @@ class CreateNotification extends Migration
     {
         //
         Schema::create('notification', function($t) {
+            $t->increments('id');
             $t->string('to');
             $t->string('from');
             $t->string('content');
             $t->string('status');
+            $t->timestamps();
         });
     }
 

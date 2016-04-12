@@ -54,14 +54,11 @@
   <body>
     <header id="header" class="navbar">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="javascript:void(0);">
+        <div class="nav navbar-nav navbar-left">
             <span class="logo-figure"></span>
             <span class="logo-text">MoPen</span>
-          </a>
         </div>
         <div class="navbar-toolbar clearfix">
-
           <!-- START navbar form -->
           <div class="navbar-form navbar-left dropdown" id="dropdown-form">
             <form action="" role="search">
@@ -75,7 +72,7 @@
           <!-- START Right nav -->
           <ul class="nav navbar-nav navbar-right">
             <!-- Search form toggler  -->
-            @if($user != 'none')
+            @if(Session::get('user_name'))
             <li class="pt15">
               <a href="{{ URL::Route('upload')}}">
                 <span type="button" class="meta btn btn-primary">
@@ -95,7 +92,7 @@
             @endif
             <!--/ Search form toggler -->
             <!-- Notification dropdown -->
-            @if($user != 'none')
+            @if(Session::get('user_name'))
             <li class="dropdown custom" id="header-dd-notification">
               <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="meta">
@@ -183,7 +180,7 @@
                   <span class="avatar">
                     <img src="../../image/avatar/avatar7.jpg" class="img-circle" alt="" />
                   </span>
-                  <span class="text hidden-xs hidden-sm pl5">Tania Alvarez</span>
+                  <span class="text hidden-xs hidden-sm pl5">{{Session::get('user_name')}}</span>
                   <span class="caret"></span>
                 </span>
               </a>
@@ -209,7 +206,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="javascript:void(0);">
+                  <a href="{{ URL::Route('logout') }}">
                     <span class="icon">
                       <i class="ico-exit"></i>
                     </span> Sign Out</a>

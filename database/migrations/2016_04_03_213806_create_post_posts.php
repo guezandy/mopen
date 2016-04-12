@@ -14,6 +14,8 @@ class CreatePostPosts extends Migration
     {
         //
         Schema::create('post_posts', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_1_id');
             $t->string('post_2_id');
             $t->string('type'); 

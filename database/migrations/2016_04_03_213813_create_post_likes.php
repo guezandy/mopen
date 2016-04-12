@@ -14,6 +14,8 @@ class CreatePostLikes extends Migration
     {
         //
         Schema::create('post_likes', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_id');
             $t->string('username');
             $t->string('status');

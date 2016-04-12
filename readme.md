@@ -112,6 +112,7 @@ View live: mopen.andrew-rodriguez.com
 4. Designers 
   * Stay on top of trends and shifts in the world of mobile UI
   * Saving posts in an organized way to share later
+  * Seeing whats possible in code
   * Reacts to:
     * Easy to use website
     * Search capabilities

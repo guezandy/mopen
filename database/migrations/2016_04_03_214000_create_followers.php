@@ -14,6 +14,8 @@ class CreateFollowers extends Migration
     {
         //
         Schema::create('follower', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('follower');
             $t->string('following');
             $t->string('status');

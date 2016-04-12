@@ -100,7 +100,8 @@
     onFinished: function() {
       // yayyy! all validation is pass.. now we can send data to server
       // or display message ;)
-      //alert('submitted!');
+console.log("YES");
+      alert('submitted!');
     }
   });
 

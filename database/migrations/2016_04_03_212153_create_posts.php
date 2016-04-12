@@ -13,6 +13,8 @@ class CreatePosts extends Migration
     public function up()
     {
         Schema::create('post', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_id');
             $t->string('name');
             $t->mediumText('description');

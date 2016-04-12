@@ -14,6 +14,8 @@ class CreatePostResources extends Migration
     {
         //
         Schema::create('post_resources', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_id');
             $t->string('res_id');
             $t->string('status');
@@ -29,6 +31,6 @@ class CreatePostResources extends Migration
     public function down()
     {
         //
-        Schame::drop('post_resources');
+        Schema::drop('post_resources');
     }
 }

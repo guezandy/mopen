@@ -13,6 +13,8 @@ class CreateResource extends Migration
     public function up()
     {
         Schema::create('res', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('res_id');
             $t->string('format');
             $t->string('post_id');

@@ -17,6 +17,7 @@ class CreateSettings extends Migration
             $t->increments('id');
             $t->string('key');
             $t->string('value');
+            $t->timestamps();
         });
     }
 

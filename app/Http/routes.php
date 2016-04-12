@@ -23,6 +23,8 @@ Route::get('register', array('as' => 'register', 'uses' => 'AppController@regist
 
 Route::get('login', array('as' => 'login', 'uses' => 'AppController@login'));
 
+Route::post('verifyLogin', array('as' => 'verifyLogin', 'uses' => 'AppController@verifyLogin'));
+
 Route::post('register_new_user', array('as'=> 'register_new_user', 'uses'=> 'AppController@registerNewUser'));
 
 Route::get('/user/activation/{act}', array(
@@ -30,11 +32,16 @@ Route::get('/user/activation/{act}', array(
 		'uses' => 'AppController@userActivation'
 	)
 );
+Route::get('logout', array('as'=>'logout', 'uses'=>'AppController@logout'));
+Route::get('forgot_password',  array('as'=>'forgot_password', 'uses'=>'AppController@forgotPassword'));
+Route::get('reset_password', array('as'=>'resetPassword', 'uses'=>'AppController@resetPassword'));
 
 //POST
 Route::get('post', array('as' => 'post', 'uses'=> 'AppController@post'));
 
 Route::get('upload', array('as'=>'upload', 'uses'=>'AppController@upload'));
+
+Route::post('uploadNewPost', array('as'=>'uploadNewPost', 'uses'=>'AppController@uploadNewPost'));
 
 //SEARCH
 Route::get('search', array('as'=>'search', 'uses'=> 'AppController@search'));

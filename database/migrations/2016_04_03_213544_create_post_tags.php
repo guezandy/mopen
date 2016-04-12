@@ -14,6 +14,8 @@ class CreatePostTags extends Migration
     {
         //
         Schema::create('post_tags', function($t) {
+            $t->increments('id');
+            $t->timestamps();
             $t->string('post_id');
             $t->integer('tag_id');
             $t->string('status');
