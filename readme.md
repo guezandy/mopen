@@ -82,7 +82,8 @@ View live: mopen.andrew-rodriguez.com
 * General:
   - [ ] configure email client (Mail Chimp)
   - [ ] revisa cada pagina en mobile
-
+* Email:
+  - [ ] Mail chimp configured but not tested
 #User flows:
 1. Browser (Business dude, non-techy)
   * Don't really understand how to go from a post to prototype
