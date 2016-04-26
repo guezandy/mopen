@@ -20,6 +20,7 @@ class CreateCode extends Migration
             $t->string('file_name');
             $t->string('status');
             $t->longText('code');
+            $t->longText('description');
             $t->timestamps();
         });
     }

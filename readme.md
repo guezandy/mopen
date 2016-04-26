@@ -10,7 +10,7 @@ View live: mopen.andrew-rodriguez.com
   - [ ] Decide on upload flow
 * Profile:
   - [ ] user profile page (online vs offline)
-  - [ ] following vs not following 
+  - [ ] following vs not following (follower loading button looks cool)
   - [ ] my profile vs someone elses
 * Search:
   - [ ] search for people

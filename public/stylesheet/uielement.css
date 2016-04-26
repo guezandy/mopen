@@ -8416,9 +8416,11 @@ a.thumbnail.active {
 }
 .panel .panel-toolbar > .option > .btn.up > .arrow:before {
   content: "\e670";
+  color: white;
 }
 .panel .panel-toolbar > .option > .btn > .arrow:before {
   content: "\e671";
+  color: white;
 }
 .panel .panel-toolbar > .option > .btn > .reload:before {
   content: "\e61d";
@@ -8426,6 +8428,7 @@ a.thumbnail.active {
 }
 .panel .panel-toolbar > .option > .btn > .remove:before {
   content: "\e36c";
+  color: white;
 }
 .panel .panel-toolbar > .form-horizontal .form-group {
   margin: 0px;
@@ -8478,6 +8481,9 @@ a.thumbnail.active {
 }
 .panel-body {
   position: relative;
+}
+.panel-code-body {
+  background-color: white;
 }
 .panel-body:last-child {
   border-bottom: 0px;
@@ -8817,7 +8823,7 @@ a.thumbnail.active {
 }
 .page-header.page-header-block {
   padding: 14px 20px 16px 20px;
-  /*background-color: #fbfcfc;*/
+  background-color: #fbfcfc;
 }
 .page-header.page-header-block .title {
   margin: 0px;

@@ -8,6 +8,9 @@ use Hash;
 use URL;
 use View;
 use Session;
+use Storage;
+use Request;
+use DB;
 
 use App\models\Admin;
 use App\models\Code;
@@ -19,6 +22,7 @@ use App\models\PostLike;
 use App\models\PostPost;
 use App\models\PostResource;
 use App\models\PostTag;
+use App\models\PostType;
 use App\models\PostUser;
 use App\models\Resource;
 use App\models\SavePost;
@@ -28,9 +32,26 @@ use App\models\User;
 
 class AppController extends Controller {
 
+//NEW STUFF
+	public function update2() {
+		return view('update/landing');
+	}
+
+	public function people2() {
+		return view('update/people');
+	}
+
+	public function profile2() {
+		return view('update/profile');
+	}
+
+	public function post2() {
+		return view('update/post');		
+	}
+
 //LANDING PAGE STUFF
     public function home() {
-    	return view('home')->with('user', 'some'); //change to none for anonymous screen
+    	return view('home')->with('user', 'none'); //change to none for anonymous screen
     }
 
     public function welcome() {
@@ -217,7 +238,7 @@ class AppController extends Controller {
 	}
 
 	public function profile() {
-    	return view('profile')->with('user', 'none');
+    	return view('profile')->with('user', 'some');
     }
     public function logout()
 	{
@@ -225,22 +246,20 @@ class AppController extends Controller {
 		return Redirect::to('login');
 	}
 
-//POST STUFF
+//TESTING UI STUFF
     public function upload() {
     	return view('upload')->with('user', 'none');
     }
 
-    public function uploadNewPost() {
-    	return "IN THIS";
-    	$type = Input::get('type');
-		$title = Input::get('title');
-		$vc = Input::get('vc');
-		$description = Input::get('description');
-		$tags = Input::get('tags');
-		$collaborators = Input::get('collaborators');
-
-		return $type;
+    public function upload2() {
+    	return view('upload2')->with('count', 2);
     }
+
+    public function upload3() {
+    	return view('upload3');
+    }
+
+    
 
     public function post() {
     	return view('post')->with('user', 'none');

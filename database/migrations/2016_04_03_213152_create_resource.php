@@ -16,9 +16,10 @@ class CreateResource extends Migration
             $t->increments('id');
             $t->timestamps();
             $t->string('res_id');
-            $t->string('format');
+            $t->string('mime');
             $t->string('post_id');
             $t->string('file_name');
+            $t->string('original_filename');
             $t->string('status');
             $t->string('aws_key');
         });    

@@ -27,8 +27,6 @@
     <link rel="stylesheet" href="{{asset('/plugins/fileupload/css/fileupload.css')}}">
 
     <!-- Form Elements -->
-    <link rel="stylesheet" href="{{asset('/plugins/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('/plugins/animatecss/css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/selectize/css/selectize.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/jquery-ui/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('/plugins/select2/css/select2.css')}}">
@@ -46,10 +44,21 @@
     <link rel="stylesheet" href="{{asset('plugins/datatables/css/datatables.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/jqvmap/css/jqvmap.css')}}">
 
+    <!-- CODE SYNTAX STUFF -->
+    <link rel="stylesheet" href="{{asset('code/lib/codemirror.css')}}">
+    <link rel="stylesheet" href="{{asset('code/addon/hint/show-hint.css')}}">
+    <script type="text/javascript" src="/code/lib/codemirror.js"></script>
+    <script type="text/javascript" src="/code/addon/hint/show-hint.js"></script>
+    <script type="text/javascript" src="/code/addon/hint/xml-hint.js"></script>
+    <script type="text/javascript" src="/code/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="/code/addon/mode/loadmode.js"></script>
+    <script type="text/javascript" src="/code/mode/meta.js"></script>
+    <script type="text/javascript" src="/code/mode/clike/clike.js"></script>
+    <script type="text/javascript" src="/code/mode/xml/xml.js"></script>
 
     <!--/ Plugins stylesheet : optional --> 
 
-    <script type="text/javascript" src="plugins/modernizr/js/modernizr.js"></script>
+    <script type="text/javascript" src="/plugins/modernizr/js/modernizr.js"></script>
   </head>
   <body>
     <header id="header" class="navbar">
@@ -624,9 +633,12 @@
     </aside>
     <section id="main" role="main">
       <div class="container-fluid">
-
-        @yield('content')
-
+        <div>
+          @yield('content')
+        </div>
+        <div>
+          @yield('code')
+        </div>
       </div>
 
       <a href="#" class="totop animation" data-toggle="waypoints totop" data-showanim="bounceIn" data-hideanim="bounceOut" data-offset="50%">

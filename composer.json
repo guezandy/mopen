@@ -7,7 +7,10 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "skovmand/mailchimp-laravel": "1.*"
+        "laravelcollective/html": "~5.0",
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "skovmand/mailchimp-laravel": "1.*",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

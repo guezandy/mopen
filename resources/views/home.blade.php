@@ -10,9 +10,9 @@
     <h4 class="thin text-white text-center">Algo mas cosa cosa</h4>
     <div class="text-center pt15">
     @if($user != 'none')
-    <a href="{{URL::Route('upload')}}">
+    <a href="{{URL::Route('upload/android_native')}}">
     	<button type="button" class="btn btn-primary pr15">
-            <i class="ico-plus-circle"></i> Create new post
+            <i class="ico-plus-circle"></i> Create new post (android)
         </button>
     </a>
     @else
