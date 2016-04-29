@@ -49,6 +49,10 @@ class AppController extends Controller {
 		return view('update/post');		
 	}
 
+	public function upload2() {
+		return view('update/upload/android_native/info');
+	}
+
 //LANDING PAGE STUFF
     public function home() {
     	return view('home')->with('user', 'none'); //change to none for anonymous screen
@@ -251,9 +255,9 @@ class AppController extends Controller {
     	return view('upload')->with('user', 'none');
     }
 
-    public function upload2() {
-    	return view('upload2')->with('count', 2);
-    }
+    // public function upload2() {
+    // 	return view('upload2')->with('count', 2);
+    // }
 
     public function upload3() {
     	return view('upload3');

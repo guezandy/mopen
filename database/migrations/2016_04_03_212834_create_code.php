@@ -19,8 +19,9 @@ class CreateCode extends Migration
             $t->string('post_id');
             $t->string('file_name');
             $t->string('status');
-            $t->longText('code');
-            $t->longText('description');
+            $t->tinyInteger('uploaded');
+            $t->text('code');
+            $t->text('description');
             $t->timestamps();
         });
     }

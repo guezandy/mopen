@@ -5,7 +5,7 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="page-header page-header-block">
   <div class="page-header-section">
-    <h4 class="title semibold">Upload a new post
+    <h4 class="title semibold">Upload a new post 
     @if(isset($status))
       {{$status}}
      @endif 

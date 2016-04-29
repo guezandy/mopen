@@ -20,6 +20,7 @@ class CreatePosts extends Migration
             $t->mediumText('description');
             $t->string('vc_link');
             $t->integer('comments');
+            $t->boolean('uploaded');
             $t->integer('likes');
             $t->integer('views');
             $t->boolean('blocked');

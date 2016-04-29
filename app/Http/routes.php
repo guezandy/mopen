@@ -38,7 +38,7 @@ Route::get('reset_password', array('as'=>'resetPassword', 'uses'=>'AppController
 //General POST and testing stuff
 Route::get('post', array('as' => 'post', 'uses'=> 'AppController@post'));
 Route::get('upload', array('as'=>'upload', 'uses'=>'AppController@upload'));
-Route::get('upload2', array('as'=>'upload2', 'uses'=>'AppController@upload2'));
+//Route::get('upload2', array('as'=>'upload2', 'uses'=>'AppController@upload2'));
 Route::get('upload3', array('as'=>'upload3', 'uses'=>'AppController@upload3'));
 Route::post('uploadNewPost', array('as'=>'uploadNewPost', 'uses'=>'AppController@uploadNewPost'));
 Route::post('uploadResource', array('as'=>'uploadResource', 'uses'=>'AppController@uploadResource'));
@@ -55,6 +55,7 @@ Route::any('deletePost/{id}', array('as' => 'deletePost', 'uses' => 'PostControl
 
 //ANDROID NATIVE POST UPLOAD:
 Route::get('upload/android_native', array('as'=>'upload/android_native', 'uses'=>'AndroidNativeController@renderUploadScreen'));
+Route::post('upload/android_native/save', array('as'=>'upload/android_native/save', 'uses'=>'AndroidNativeController@save'));
 Route::post('upload/android_native/save_info', array('as'=>'upload/android_native/save_info', 'uses'=>'AndroidNativeController@saveBasicInfo'));
 Route::post('upload/android_native/save_image', array('as'=>'upload/android_native/save_image', 'uses'=>'AndroidNativeController@uploadResource'));
 Route::any('upload/android_native/add_java_snippet', array('as'=>'upload/android_native/add_java_snippet', 'uses'=>'AndroidNativeController@addJavaSnippet'));
