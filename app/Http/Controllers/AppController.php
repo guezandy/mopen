@@ -52,8 +52,8 @@ class AppController extends Controller {
 			$post['res'] = $res;
 			$post['image'] = $image;
 			$post['tags'] = $tags;
+			array_push($posts, $post);
 		}
-		array_push($posts, $post);
 		return view('update/landing')->with('tab', 1)->with('posts', $posts)->with('all_tags', $all_tags);
 	}
 
@@ -89,8 +89,8 @@ class AppController extends Controller {
 			$post['res'] = $res;
 			$post['image'] = $image;
 			$post['tags'] = $tags;
+			array_push($posts, $post);
 		}
-		array_push($posts, $post);
 
 		return view('update/post')
 			->with('tab', 1)
@@ -106,12 +106,81 @@ class AppController extends Controller {
 	}
 
 
-	public function people2() {
-		return view('update/people')->with('tab', 2);
+	public function people() {
+		$user_query = User::where('verified_email', '=', 1);
+		if(Session::get('user_id')) {
+			$user_query->where('id', '<>', Session::get('user_id'));
+		}
+		if(Input::get('search')) {
+			$search = Input::get('search');
+			$user_query->where('full_name', 'like', '%'.$search.'%')
+				->orWhere('username', 'like', '%'.$search.'%');
+		}
+		$users = $user_query->get();
+		return view('update/people')->with('tab', 2)->with('users', $users);
 	}
+/* NOT NEEDED */
+	public function search() {
+		$search = Input::get('search');
+		
+		return view('update/people')->with('user', 'none');
+	}  
 
-	public function profile2() {
-		return view('update/profile')->with('tab', 3);
+	public function profile($username, $id) {
+		$posts = array();
+		$user = User::where('username', '=', $username)->first();
+		$user_posts = Post::where('user_id', '=', $user->id)->where('uploaded', 1)->take(10)->get();
+		$all_tags = Tag::all();
+		foreach($user_posts as $user_post) {
+			$user = User::where('id', '=', $user_post->user_id)->first();
+			$res = Resource::where('post_id', '=', $user_post->post_id)->first();
+			$url = 'https://s3-us-west-1.amazonaws.com/mopen'. $res->aws_key;
+			$image = \Storage::disk('s3')->get($res->aws_key);
+			$post_tags = PostTag::where('post_id', '=', $user_post->post_id)->lists('tag_id');
+			$tags = Tag::whereIn('id', $post_tags)->get();
+			$post = array();
+			$post['post'] = $user_post;
+			$post['user'] = $user->full_name;
+			$post['res'] = $res;
+			$post['image'] = $image;
+			$post['tags'] = $tags;
+			array_push($posts, $post);
+		}
+		if($id != 'all') {
+			$main_post = Post::where('post_id', '=', $id)->first();
+			if($main_post != null) {
+				$user = User::where('id', '=', $main_post->user_id)->first();
+				$resources = Resource::where('post_id', '=', $main_post->post_id)->get();
+				$images = array();
+				foreach($resources as $res) {
+					$url = 'https://s3-us-west-1.amazonaws.com/mopen'. $res->aws_key;
+					$file = \Storage::disk('s3')->get($res->aws_key);
+					array_push($images, $file);
+				}
+				$post_tags = PostTag::where('post_id', '=', $main_post->post_id)->lists('tag_id');
+				$tags = Tag::whereIn('id', $post_tags)->get();
+				$codes = Code::where('post_id', '=', $main_post->post_id)->get();
+				$post_users = PostUser::where('post_id', '=', $main_post->post_id)->lists('user_id');
+		    	$collaborators = User::whereIn('id', $post_users)->get();
+		    }
+			return view('update/profile')
+					->with('post', $main_post)
+					->with('tags', $tags)
+					->with('resources', $resources)
+					->with('images', $images)
+					->with('collaborators', $collaborators)
+					->with('codes', $codes)
+					->with('tab', 3)
+					->with('user', $user)
+					->with('posts', $posts)
+					->with('all_tags', $all_tags);
+		} else {
+			return view('update/profile')
+					->with('tab', 3)
+					->with('user', $user)
+					->with('posts', $posts)
+					->with('all_tags', $all_tags);			
+		}
 	}
 
 	public function upload2() {
@@ -293,7 +362,7 @@ class AppController extends Controller {
 					Session::put('user_id', $user->id);
 					Session::put('user_name', $user->username);
 					Session::put('user_pic', $user->image);	
-					return Redirect::to('update2')->with('tab', 1);
+					return Redirect::to('home')->with('tab', 1);
 				}
 				else{
 					return view('login')->with('message', 'Invalid username and password');
@@ -306,9 +375,9 @@ class AppController extends Controller {
 		}
 	}
 
-	public function profile() {
-    	return view('profile')->with('user', 'some');
-    }
+	// public function profile() {
+ //    	return view('profile')->with('user', 'some');
+ //    }
     public function logout()
 	{
 		Session::flush();
@@ -333,11 +402,7 @@ class AppController extends Controller {
     // public function post() {
     // 	return view('post')->with('user', 'none');
     // }
-
-//Search stuff
-	public function search() {
-		return view('search')->with('user', 'none');
-	}    
+  
 
 //NOTIFICATIONS:
 	public function notifications() {

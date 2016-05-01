@@ -4,8 +4,6 @@
 {!! Form::open(array('files' => TRUE, 'action' => 'AndroidNativeController@save')) !!}
 {!! csrf_field() !!}
 
-<!-- <p>Post object: {{$post}} </p>
-<h5>PenID: {{Session::get('post_id')}} {{$post->post_id}}</h5> -->
 <h1>{{$post->name ? $post->name : "Title"}}</h1>
 <p>A post by: {{$user->full_name}}</p>
 
@@ -115,6 +113,11 @@
 	    </div>
 		</div>
 		<div class="form-group">
+      <ul>
+         @for($i = 0; $i < count($tags); $i++)
+          <li> Tag {{$tags[$i]->name}} <a class="btn btn-default">X</a></li>
+         @endfor
+      </ul>
 	    <label class="col-sm-3 control-label">Select tags</label>
 	    <div class="col-sm-9">
 	      <select id="selectize-selectmultiple" name="tags[]" id="tags" class="form-control" placeholder="Select tags..." multiple>
@@ -126,6 +129,11 @@
 	    </div>
 		</div>
 		<div class="form-group">
+      <ul>
+        @for($i = 0; $i < count($collaborators); $i++)
+          <li> Person {{$collaborators[$i]->full_name}} <a class="btn btn-default">X</a></li>
+        @endfor
+      </ul>
 	    <label class="col-sm-3 control-label">Collaborators</label>
 	    <div class="col-sm-9">
 	      <select id="selectize-selectmultiple2" class="form-control" name="collaborators[]" id="collaborators" placeholder="Select contact..." multiple>

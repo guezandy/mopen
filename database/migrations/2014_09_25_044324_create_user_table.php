@@ -28,6 +28,9 @@ class CreateUserTable extends Migration {
           $t->string('token');
           $t->integer('token_expiry');
           $t->boolean('blocked');
+          $t->integer('posts');
+          $t->integer('stars');
+          $t->integer('followers');
           $t->timestamps();
 		});
 	}

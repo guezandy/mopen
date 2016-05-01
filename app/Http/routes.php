@@ -15,13 +15,15 @@ Route::get('/', 'AppController@update2');
 Route::get('home', array('as'=>'home', 'uses'=>'AppController@update2'));
 
 Route::get('update2', array('as'=>'update2', 'uses'=>'AppController@update2'));
-Route::get('people2', array('as'=>'people2', 'uses'=>'AppController@people2'));
-Route::get('profile2', array('as'=>'profile2', 'uses'=>'AppController@profile2'));
+Route::any('people', array('as'=>'people', 'uses'=>'AppController@people'));
+//Route::get('profile', array('as'=>'profile', 'uses'=>'AppController@profile'));
+Route::get('profile/{username}/{id}', array('as'=>'profile', 'uses'=>'AppController@profile'));
 Route::get('post/{id}', array('as'=>'post', 'uses'=>'AppController@post'));
-
+//Route::get('user/{username}', array('as'=>'user', 'uses'=>'AppController@user'));
+//Route::post('search', array('as'=>'search', 'uses'=>'AppController@search'));
 
 //USER
-Route::get('profile', 'AppController@profile');
+//Route::get('profile', 'AppController@profile');
 Route::get('register', array('as' => 'register', 'uses' => 'AppController@register'));
 Route::get('login', array('as' => 'login', 'uses' => 'AppController@login'));
 Route::post('verifyLogin', array('as' => 'verifyLogin', 'uses' => 'AppController@verifyLogin'));
@@ -64,7 +66,7 @@ Route::any('upload/android_native/add_xml_snippet', array('as'=>'upload/android_
 Route::post('upload/android_native/save_code', array('as'=>'upload/android_native/save_code', 'uses'=>'AndroidNativeController@saveCode'));
 
 //SEARCH
-Route::get('search', array('as'=>'search', 'uses'=> 'AppController@search'));
+//Route::get('search', array('as'=>'search', 'uses'=> 'AppController@search'));
 
 //NOTIFICAITONS
 Route::get('notifications', array('as'=>'notifications', 'uses'=>'AppController@notifications'));

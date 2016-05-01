@@ -22,32 +22,39 @@
 
 <!--work choice-->
 <div class="item-choice">
+{!! Form::open(array('action' => 'AppController@people')) !!}
+{!! csrf_field() !!}
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for your peeps">
+      <input type="text" class="form-control" name="search" id="search" placeholder="Search for your peeps">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
+        <button class="btn btn-default" type="submit">Go!</button>
       </span>
     </div><!-- /input-group -->
+{!! Form::close() !!}    
     <hr>
 </div>
 
 <section class="row" id="Grid">
-	@for($i = 0; $i < 5; $i++)    
+	@foreach($users as $user)    
     <div class="media">
         <div class="col-sm-3">
-            <img class="img-responsive" src="update/img/blog/avatar.jpg" alt="Coso">     
+        <a href="{{ url('profile', ['username' => $user->username])}}">
+            <img class="img-responsive" src="update/img/blog/avatar.jpg" alt="Coso"> 
+        </a>    
         </div>
         <div class="col-sm-8">
             <div class="media-body">
-                <h4 class="media-heading">Persons Name</h4>
-                <p class="article-category">Persons handle<br>
-                Posts: 5 | Stars: 6 | Followers: 40</p>
+                <h4 class="media-heading">{{$user->full_name}}</h4>
+                <p class="article-category">{{$user->username}}<br>
+                Posts: {{$user->posts}} | Stars: {{$user->stars}} | Followers: {{$user->followers}}</p>
             </div>
         </div>
+        @if(Session::get('user_id'))
         <div class="col-sm-1">
             <a href="btn btn-info">Add</a>
         </div>
+        @endif
     </div>
-    @endfor
+    @endforeach
 </section>
 @endsection

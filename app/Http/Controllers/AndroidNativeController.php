@@ -190,8 +190,12 @@ class AndroidNativeController extends Controller {
         	Session::put('message', "Post saved, preview created");
         } else if(Input::get('upload')) {
         	$post_tags = PostTag::where('post_id', '=', $post_id)->count();
-        	$resources = Resource::where('post_id', '=', $post_id)->count();
-			if($post->name == '' || count($codes) < 1 || $resources < 1 || $post_tags < 1) {
+        	$resources = Resource::where('post_id', '=', $post_id)->get();
+        	$user_id = Session::get('user_id'); //TODO check if user is logged in before?
+			$user = User::find($user_id);
+			$user->increment('posts');
+			$user->save();
+			if($post->name == '' || count($codes) < 1 || count($resources) < 1 || $post_tags < 1) {
 				Session::put('message', "Required: Title, 1 image, 1 code snippet, 1 tag");
 			} else {
 				$images = array();
@@ -204,12 +208,13 @@ class AndroidNativeController extends Controller {
 				$post->save();
 				Session::put('post_id', null);
 				Session::put('message', 'Upload Successful');
-		    	return Redirect::to('post')
-		    			->with('tab', 1)
-		    			->with('post', $post)
-		    			->with('images', $images)
-		    			->with('resources', $resources)
-		    			->with('codes', $codes);    
+				return Redirect::action('AppController@profile', array('username'=>$user->username,'id' => $post->post_id));
+		    	// return Redirect::to('post/'.$post->post_id)
+		    	// 		->with('tab', 1)
+		    	// 		->with('post', $post)
+		    	// 		->with('images', $images)
+		    	// 		->with('resources', $resources)
+		    	// 		->with('codes', $codes);    
 		    }    	
         } else if(Input::get('add_java')) {
         	$this->addJavaSnippet();

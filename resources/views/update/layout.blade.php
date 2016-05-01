@@ -60,7 +60,7 @@
                             @else
                             <li>
                             @endif
-                                <a href="{{URL::Route('people2')}}">People</a>
+                                <a href="{{URL::Route('people')}}">People</a>
                             </li>
                             @if($loggedin)
                                 @if($tab == 3)
@@ -68,7 +68,7 @@
                                 @else
                                 <li>
                                 @endif
-                                    <a href="{{URL::Route('profile2')}}">Profile</a>
+                                    <a href="{{ URL::Route('profile', ['username' => Session::get('user_name'), 'id'=>'all'])}}">Profile</a>
                                 </li>
                                 @if($tab == 4)
                                 <li class="active"> 
