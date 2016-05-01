@@ -16,7 +16,7 @@ class CreateResource extends Migration
             $t->increments('id');
             $t->timestamps();
             $t->string('res_id');
-            $t->string('mime');
+            $t->string('format');
             $t->string('post_id');
             $t->string('file_name');
             $t->string('original_filename');

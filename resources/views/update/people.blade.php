@@ -33,24 +33,19 @@
 
 <section class="row" id="Grid">
 	@for($i = 0; $i < 5; $i++)    
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mix print">
-        <div class="panel panel-default item person">
-            <div class="col-sm-3">
-                <a href="project-example.html">
-                    <img class="img-responsive item-img" src="update/img/blog/avatar.jpg" alt="Work 2">
-                </a>    
+    <div class="media">
+        <div class="col-sm-3">
+            <img class="img-responsive" src="update/img/blog/avatar.jpg" alt="Coso">     
+        </div>
+        <div class="col-sm-8">
+            <div class="media-body">
+                <h4 class="media-heading">Persons Name</h4>
+                <p class="article-category">Persons handle<br>
+                Posts: 5 | Stars: 6 | Followers: 40</p>
             </div>
-            <div class="col-sm-4">
-                <a href="project-example.html"><h4 class="item-title">Andrew Rodriguez</h4></a>
-                <p class="item-category">@cosocoso</p>
-                <hr>
-            </div>
-            <div class="col-sm-4">
-               Post: 12 | Stars: 34     
-            </div>
-            <div class="col-sm-1">
-                <button class="btn btn-info">+</button>
-            </div>
+        </div>
+        <div class="col-sm-1">
+            <a href="btn btn-info">Add</a>
         </div>
     </div>
     @endfor

@@ -1,6 +1,6 @@
 <?php
 namespace App\models;
 
-class PostTags extends \Eloquent {
+class PostTag extends \Eloquent {
     protected $table = 'post_tags';
 }

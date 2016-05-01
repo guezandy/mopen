@@ -36,6 +36,7 @@
 
   /** lazy load */
   $('#lazy-load').owlCarousel({
+    items: 3,
     lazyLoad: true
   });
 

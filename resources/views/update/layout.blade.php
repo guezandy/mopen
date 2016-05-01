@@ -37,36 +37,53 @@
     
     </head>
     <body class="page-index">
-    <?php $loggedin = true ?>
+    <?php $loggedin = (Session::get('user_id') != null) ?>
         <div class="container" id="container">
-        
             <div class="row top">
                 <div class="col-lg-8 col-md-8 col-sm-7 col-left">
-                    <div class="name"><a href="{{URL::Route('update2')}}">MoPen</a></div>
+                    <div class="name">
+                        <a href="{{URL::Route('update2')}}">MoPen</a>
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-5 col-right">
                     <nav>
                         <ul class="list-inline" id="menu">
-                            <li class="active"> <!-- TODO: change active per page -->
-                                <a href="{{URL::Route('post2')}}">Posts</a>
-                            </li>
+                            @if($tab == 1)
+                            <li class="active"> 
+                            @else
                             <li>
+                            @endif
+                                <a href="{{URL::Route('home')}}">Home</a>
+                            </li>
+                            @if($tab == 2)
+                            <li class="active"> 
+                            @else
+                            <li>
+                            @endif
                                 <a href="{{URL::Route('people2')}}">People</a>
                             </li>
                             @if($loggedin)
-                            <li>
-                                <a href="{{URL::Route('profile2')}}">Profile</a>
-                            </li>
-                            <li>
-                                <a href="{{URL::Route('upload/android_native')}}">AN_Upload</a>
-                            </li>
+                                @if($tab == 3)
+                                <li class="active"> 
+                                @else
+                                <li>
+                                @endif
+                                    <a href="{{URL::Route('profile2')}}">Profile</a>
+                                </li>
+                                @if($tab == 4)
+                                <li class="active"> 
+                                @else
+                                <li>
+                                @endif
+                                    <a href="{{URL::Route('upload/android_native')}}">AN_Upload</a>
+                                </li>
                             @else
-                            <li>
-                                <a href="{{URL::Route('login')}}">Login</a>
-                            </li>
-                            <li class="last">
-                                <a href="{{URL::Route('register')}}">Register</a>
-                            </li>
+                                <li>
+                                    <a href="{{URL::Route('login')}}">Login</a>
+                                </li>
+                                <li class="last">
+                                    <a href="{{URL::Route('register')}}">Register</a>
+                                </li>
                             @endif
                         </ul>
                     </nav>

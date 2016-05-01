@@ -2,108 +2,134 @@
 
 @section('main')
 
-<h1>Project title</h1>
-<!--<h1 class="spacer">___</h1>-->
+<h1>{{$post->name ? $post->name : "Title"}}</h1>
+<p>A post by: {{$user->full_name}}</p>
+
+<h1 class="spacer">___</h1>
 <p class="item-tags">
-    <a href="#">illustration</a> ,
-    <a href="#">graphic design</a> ,
-    <a href="#">website</a>
+  In collaboration with: 
+    @foreach($collaborators as $collaborator)
+    <a href="">{{$collaborator->full_name}}</a>
+    @endforeach
 </p>
-<p class="actions">
-    <a href="#">Like</a>
+<p class="item-tags">
+    @foreach($tags as $tag)
+        <a href="#">{{$tag->name}}</a>
+    @endforeach
 </p>
-<img src="update/img/project/project-1/desktop-blog.jpg" alt="" class="img-responsive">
-<p class="item-description"><strong>Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.</strong></p>
-<p>Illud autem non dubitatur quod cum esset aliquando virtutum omnium domicilium Roma, ingenuos advenas plerique nobilium, ut Homerici bacarum suavitate Lotophagi, humanitatis multiformibus officiis retentabant.</p>
-<p>Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri ductante barbaricos pagos adventans velut mutato repente consilio ad placidiora deverti.</p>
-<!--<hr> -->
-<textarea id="java_code_1" name="java_code_1">
-public Class algo {
-    int x = 123;
-    int y = 123;
-}
-</textarea>
-<br>
-<p>Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri ductante barbaricos pagos adventans velut mutato repente consilio ad placidiora deverti.</p>
-<textarea id="java_code_2" name="java_code_2">
-public Class algo {
-    int x = 123;
-    int y = 123;
-}
-</textarea>
-
-<!--navigation
-<ul class="pager">
-    <li class="previous disabled"><a href="#">&lt; Prev</a></li>
-    <li class="next"><a href="#">Next &gt;</a></li>
-</ul>
+<div class="owl-carousel" id="lazy-load">
+   @for($i = 0; $i < count($images); $i++)
+<?php 
+  $img = Image::make($images[$i]);
+  $img->encode($resources[$i]->format);
+  $type = $resources[$i]->format;
+  $base64 = 'data:image/' . $type . ';base64,' . base64_encode($img); 
+?>
+  <div class="item thumbnail">
+    <div class="media">
+      <img class="lazyOwl" data-src="{!! $base64 !!}" alt="Photo" width="100%" />
+    </div>
+  </div>
+@endfor  
+</div>
+    <p class="item-description"><strong>Description: </strong>{{$post->description}}</p>
+<p class="item-tags">
+    <a href="">LINK: {{$post->vc_link}}</a>
+</p>
 <hr>
-
-<div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <h3 class="share">Share</h3>    
-    </div>
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-right">
-        <a href="#"><img class="social" src="update/img/icon/icon-mail.png" alt="Mail"></a>
-        <a href="#"><img class="social" src="update/img/icon/icon-facebook.png" alt="Facebook"></a>
-        <a href="#"><img class="social" src="update/img/icon/icon-twitter.png" alt="Twitter"></a>
-        <a href="#"><img class="social" src="update/img/icon/icon-google.png" alt="Google plus"></a>    
-    </div>
-</div> -->
-     
-<script>
-    var javaEditor1 = CodeMirror.fromTextArea(document.getElementById("java_code_1"), {
-        lineNumbers: true,
-        mode: "text/x-java",
-        readOnly: true
-    });
-</script>      
-<script>
-    var javaEditor2 = CodeMirror.fromTextArea(document.getElementById("java_code_2"), {
-        lineNumbers: true,
-        mode: "text/x-java",
-        readOnly: true
-    });
-</script>                      
+@for($i = 0; $i < count($codes); $i++)
+<div style='border: 1px solid;'>
+    <p>{{$codes[$i]->file_name}}.{{$codes[$i]->format}}</p>
+    <p>{{$codes[$i]->description}}</p>
+    <textarea id="{{$codes[$i]->code_id}}:code" name="{{$codes[$i]->code_id}}:code">
+        {{$codes[$i]->code}}              
+    </textarea>
+</div>
+@endfor                  
 @endsection
 
 @section('side')
 <h1 class="visible-xs section-header">Last Posts</h1>
 <h1 class="visible-xs text-center spacer">___</h1>
 
-<!--work choice-->
 <div class="item-choice">
     <a href="#" class="filter" data-filter="all">All</a> 
-    <a href="#" class="filter" data-filter="web-design">Android</a> 
-    <a href="#" class="filter" data-filter="print">Grids</a> 
-    <a href="#" class="filter" data-filter="illustration">Lists</a>
-    <a href="#" class="filter" data-filter="illustration">Etc</a>
-    <a href="#" class="filter" data-filter="illustration">Etc</a>
+    @foreach($all_tags as $tag)
+        <a href="#" class="filter" data-filter="{{$tag->name}}">{{$tag->name}}</a> 
+    @endforeach
     <hr>
 </div>
 
 <section class="row" id="Grid">
-	@for($i = 0; $i < 5; $i++)    
-    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix print">
+    @foreach($posts as $post)    
+<?php 
+  $img = Image::make($post['image']);
+  $img->encode($post['res']->format);
+  $type = $post['res']->format;
+  $base64 = 'data:image/' . $type . ';base64,' . base64_encode($img); 
+?>
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 Android">
         <div class="panel panel-default item">
             <div class="panel-heading">
-                <a href="project-example.html">
-                    <img class="img-responsive item-img" src="update/img/work/projet-example-6.jpg" alt="Work 2">
+                <a href="{{ url('post', ['id' => $post['post']->post_id])}}">
+                    <img class="img-responsive item-img" src="{!! $base64 !!}" alt="Work 2">
                 </a>    
             </div>
             <div class="panel-body">
-                <a href="project-example.html"><h4 class="item-title">Project Title</h4></a>
-                <p class="item-category">Web design</p>
-                <p class="item-description">Iam virtutem ex consuetudine vitae sermonisque nostri nostri nostri</p>
+                <a href="{{ url('post', ['id' => $post['post']->post_id])}}"><h4 class="item-title">{{$post['post']->name}}</h4></a>
+                <p class="item-category">
+                    {{$post['user']}}
+                </p>
+                <p class="item-description">{{$post['post']->description}}</p>
                 <hr>
                 <p class="item-tags">
-                    <a href="#">illustration</a> ,
-                    <a href="#">graphic design</a> ,
-                    <a href="#">website</a>
+                    @foreach($post['tags'] as $tag)
+                        {{$tag->name}} 
+                    @endforeach
                 </p>
             </div>
         </div>
     </div>
-    @endfor
+    @endforeach
 </section>
+
+
+<script>
+    <?php if(count($codes) > 0) {?>
+        var editor1 = CodeMirror.fromTextArea(document.getElementById("<?php echo $codes[0]->code_id ?>:code"), {
+            lineNumbers: true,
+            readOnly: true,
+            mode: <?php if($codes[0]->format == 'xml') { ?> "application/xml" <?php } else { ?> "text/x-java" <?php } ?>
+        });
+    <?php } ?>
+    <?php if(count($codes) > 1) { ?>
+        var editor2 = CodeMirror.fromTextArea(document.getElementById("<?php echo $codes[1]->code_id ?>:code"), {
+            lineNumbers: true,
+            readOnly: true,
+            mode: <?php if($codes[1]->format == 'xml') { ?> "application/xml" <?php } else { ?> "text/x-java" <?php } ?>
+        });
+    <?php } ?>
+    <?php if(count($codes) > 2) { ?>
+        var editor3 = CodeMirror.fromTextArea(document.getElementById("<?php echo $codes[2]->code_id ?>:code"), {
+        lineNumbers: true,
+        readOnly: true,
+        mode: <?php if($codes[2]->format == 'xml') { ?> "application/xml" <?php } else { ?> "text/x-java" <?php } ?>
+    });
+    <?php } ?>  
+    <?php if(count($codes) > 3) { ?>
+        var editor4 = CodeMirror.fromTextArea(document.getElementById("<?php echo $codes[3]->code_id ?>:code"), {
+            lineNumbers: true,
+            readOnly: true,
+            mode: <?php if($codes[3]->format == 'xml') { ?> "application/xml" <?php } else { ?> "text/x-java" <?php } ?>
+        });
+    <?php } ?>  
+    <?php if(count($codes) > 4) { ?>
+        var editor5 = CodeMirror.fromTextArea(document.getElementById("<?php echo $codes[4]->code_id ?>:code"), {
+            lineNumbers: true,
+            readOnly: true,
+            mode: <?php if($codes[4]->format == 'xml') { ?> "application/xml" <?php } else { ?> "text/x-java" <?php } ?>
+        });
+    <?php } ?>
+</script>
+
 @endsection

@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', 'AppController@welcome');
-Route::get('/home', 'AppController@home');
+Route::get('/', 'AppController@update2');
+Route::get('home', array('as'=>'home', 'uses'=>'AppController@update2'));
 
 Route::get('update2', array('as'=>'update2', 'uses'=>'AppController@update2'));
 Route::get('people2', array('as'=>'people2', 'uses'=>'AppController@people2'));
 Route::get('profile2', array('as'=>'profile2', 'uses'=>'AppController@profile2'));
-Route::get('post2', array('as'=>'post2', 'uses'=>'AppController@post2'));
+Route::get('post/{id}', array('as'=>'post', 'uses'=>'AppController@post'));
+
 
 //USER
 Route::get('profile', 'AppController@profile');
@@ -36,7 +37,7 @@ Route::get('forgot_password',  array('as'=>'forgot_password', 'uses'=>'AppContro
 Route::get('reset_password', array('as'=>'resetPassword', 'uses'=>'AppController@resetPassword'));
 
 //General POST and testing stuff
-Route::get('post', array('as' => 'post', 'uses'=> 'AppController@post'));
+//Route::get('post', array('as' => 'post', 'uses'=> 'AppController@post'));
 Route::get('upload', array('as'=>'upload', 'uses'=>'AppController@upload'));
 //Route::get('upload2', array('as'=>'upload2', 'uses'=>'AppController@upload2'));
 Route::get('upload3', array('as'=>'upload3', 'uses'=>'AppController@upload3'));

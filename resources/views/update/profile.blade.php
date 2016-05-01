@@ -18,10 +18,6 @@
 @endsection
 
 @section('side')
-<div>
-    <button class="btn btn-info">Logout</button>
-</div>
-
 <h1 class="visible-xs section-header">Last Posts</h1>
 <h1 class="visible-xs text-center spacer">___</h1>
 

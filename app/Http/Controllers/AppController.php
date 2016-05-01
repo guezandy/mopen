@@ -32,21 +32,86 @@ use App\models\User;
 
 class AppController extends Controller {
 
-//NEW STUFF
+
 	public function update2() {
-		return view('update/landing');
+		DB::disableQueryLog();
+		//TODO order by likes ?
+		$posts = array();
+		$uploaded_posts = Post::where('uploaded', 1)->take(10)->get();
+		$all_tags = Tag::all();
+		foreach($uploaded_posts as $uploaded_post) {
+			$user = User::where('id', '=', $uploaded_post->user_id)->first();
+			$res = Resource::where('post_id', '=', $uploaded_post->post_id)->first();
+			$url = 'https://s3-us-west-1.amazonaws.com/mopen'. $res->aws_key;
+			$image = \Storage::disk('s3')->get($res->aws_key);
+			$post_tags = PostTag::where('post_id', '=', $uploaded_post->post_id)->lists('tag_id');
+			$tags = Tag::whereIn('id', $post_tags)->get();
+			$post = array();
+			$post['post'] = $uploaded_post;
+			$post['user'] = $user->full_name;
+			$post['res'] = $res;
+			$post['image'] = $image;
+			$post['tags'] = $tags;
+		}
+		array_push($posts, $post);
+		return view('update/landing')->with('tab', 1)->with('posts', $posts)->with('all_tags', $all_tags);
 	}
 
+	public function post($id) {
+		$main_post = Post::where('post_id', '=', $id)->first();
+		$user = User::where('id', '=', $main_post->user_id)->first();
+		$resources = Resource::where('post_id', '=', $main_post->post_id)->get();
+		$images = array();
+		foreach($resources as $res) {
+			$url = 'https://s3-us-west-1.amazonaws.com/mopen'. $res->aws_key;
+			$file = \Storage::disk('s3')->get($res->aws_key);
+			array_push($images, $file);
+		}
+		$post_tags = PostTag::where('post_id', '=', $main_post->post_id)->lists('tag_id');
+		$tags = Tag::whereIn('id', $post_tags)->get();
+		$codes = Code::where('post_id', '=', $main_post->post_id)->get();
+		$post_users = PostUser::where('post_id', '=', $main_post->post_id)->lists('user_id');
+    	$collaborators = User::whereIn('id', $post_users)->get();
+
+		$posts = array();
+		$uploaded_posts = Post::where('uploaded', 1)->take(10)->get();
+		$all_tags = Tag::all();
+		foreach($uploaded_posts as $uploaded_post) {
+			$user = User::where('id', '=', $uploaded_post->user_id)->first();
+			$res = Resource::where('post_id', '=', $uploaded_post->post_id)->first();
+			$url = 'https://s3-us-west-1.amazonaws.com/mopen'. $res->aws_key;
+			$image = \Storage::disk('s3')->get($res->aws_key);
+			$post_tags = PostTag::where('post_id', '=', $uploaded_post->post_id)->lists('tag_id');
+			$tags = Tag::whereIn('id', $post_tags)->get();
+			$post = array();
+			$post['post'] = $uploaded_post;
+			$post['user'] = $user->full_name;
+			$post['res'] = $res;
+			$post['image'] = $image;
+			$post['tags'] = $tags;
+		}
+		array_push($posts, $post);
+
+		return view('update/post')
+			->with('tab', 1)
+			->with('post', $main_post)
+			->with('user', $user)
+			->with('tags', $tags)
+			->with('resources', $resources)
+			->with('images', $images)
+			->with('collaborators', $collaborators)
+			->with('posts', $posts)
+			->with('all_tags', $all_tags)
+			->with('codes', $codes);		
+	}
+
+
 	public function people2() {
-		return view('update/people');
+		return view('update/people')->with('tab', 2);
 	}
 
 	public function profile2() {
-		return view('update/profile');
-	}
-
-	public function post2() {
-		return view('update/post');		
+		return view('update/profile')->with('tab', 3);
 	}
 
 	public function upload2() {
@@ -228,16 +293,16 @@ class AppController extends Controller {
 					Session::put('user_id', $user->id);
 					Session::put('user_name', $user->username);
 					Session::put('user_pic', $user->image);	
-					return Redirect::to('home');
+					return Redirect::to('update2')->with('tab', 1);
 				}
 				else{
-					return view('login')->with('message', 'Invalid email and password');
+					return view('login')->with('message', 'Invalid username and password');
 				}
 			}else{
-				return view('login')->with('message','Please verify your email');
+				return view('login')->with('message','Please verify your account via email');
 			}
 		} else{
-			return view('login')->with('message','Invalid email');
+			return view('login')->with('message','Invalid username');
 		}
 	}
 
@@ -265,9 +330,9 @@ class AppController extends Controller {
 
     
 
-    public function post() {
-    	return view('post')->with('user', 'none');
-    }
+    // public function post() {
+    // 	return view('post')->with('user', 'none');
+    // }
 
 //Search stuff
 	public function search() {

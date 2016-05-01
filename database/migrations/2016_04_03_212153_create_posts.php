@@ -16,6 +16,7 @@ class CreatePosts extends Migration
             $t->increments('id');
             $t->timestamps();
             $t->string('post_id');
+            $->integer('user_id');
             $t->string('name');
             $t->mediumText('description');
             $t->string('vc_link');

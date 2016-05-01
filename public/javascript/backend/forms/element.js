@@ -67,6 +67,10 @@
     maxItems: 3
   });
 
+  $('#selectize-selectmultiple2').selectize({
+    maxItems: 3
+  });
+
   /** Contact select */
   (function() {
     var REGEX_EMAIL = '([a-z0-9!#$%&*+/=?^_`{|}~-]+(?:[a-z0-9!#$%&*+/=?^_`{|}~-]+)*@' + '(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)';

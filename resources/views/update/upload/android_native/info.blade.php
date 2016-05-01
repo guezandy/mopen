@@ -3,20 +3,23 @@
 @section('main')
 {!! Form::open(array('files' => TRUE, 'action' => 'AndroidNativeController@save')) !!}
 {!! csrf_field() !!}
-<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-<p>Post object: {{$post}} </p>
-<h5>PenID: {{Session::get('post_id')}} {{$post->post_id}}</h5>
+
+<!-- <p>Post object: {{$post}} </p>
+<h5>PenID: {{Session::get('post_id')}} {{$post->post_id}}</h5> -->
 <h1>{{$post->name ? $post->name : "Title"}}</h1>
-<!--<h1 class="spacer">___</h1>-->
+<p>A post by: {{$user->full_name}}</p>
+
+<h1 class="spacer">___</h1>
 <p class="item-tags">
-	@for($i = 0; $i < 2; $i++)
-	<a href="">Person {{$i}}</a>
-	@endfor
+  In collaboration with: 
+	@foreach($collaborators as $collaborator)
+	<a href="">{{$collaborator->full_name}}</a>
+	@endforeach
 </p>
 <p class="item-tags">
-    @for($i = 0; $i < 3; $i++)
-    	<a href="#">tag {{$i}}</a>
-    @endfor
+    @foreach($tags as $tag)
+    	<a href="#">{{$tag->name}}</a>
+    @endforeach
 </p>
 <div class="owl-carousel" id="lazy-load">
    @for($i = 0; $i < count($images); $i++)
@@ -29,7 +32,6 @@
   <div class="item thumbnail">
     <div class="media">
       <img class="lazyOwl" data-src="{!! $base64 !!}" alt="Photo" width="100%" />
-      <h5 class="nm semibold">background1.jpg</h5>
     </div>
   </div>
 @endfor  
@@ -71,16 +73,13 @@
     </div>
   </div>
 @endfor
-{!! Form::close() !!}
 
 @endsection
 
 @section('side')
 <h1 class="visible-xs section-header">Mobile Upload</h1>
 <h1 class="visible-xs text-center spacer">___</h1>
-{!! Form::open(array('files' => TRUE, 'action' => 'AndroidNativeController@save')) !!}
-{!! csrf_field() !!}
-<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
 <!--work choice-->
 <div class="item-choice">
     <div class="input-group">
@@ -118,23 +117,22 @@
 		<div class="form-group">
 	    <label class="col-sm-3 control-label">Select tags</label>
 	    <div class="col-sm-9">
-	      <select id="selectize-selectmultiple" name="tags" id="tags" class="form-control" placeholder="Select tags..." multiple>
-	        <option value="">Select a tag...</option>
-	          <optgroup label="Android">
-	            <option value="AA">Custom Row Adapter</option>
-	            <option value="AB">Custom Gridview</option>
-	          </optgroup>
-	          <optgroup label="IOS">
-	            <option value="AC">Some ios coso</option>
-	            <option value="AD">Magic</option>
-	          </optgroup>  
+	      <select id="selectize-selectmultiple" name="tags[]" id="tags" class="form-control" placeholder="Select tags..." multiple>
+	        <option value="">Select a tag...</option> <!-- TODO POssible options groups using optgroup tag -->
+	          @foreach($tags_left as $tag)
+	          	<option value="{{$tag->id}}">{{$tag->name}}</option>
+	          @endforeach		
 	      </select>
 	    </div>
 		</div>
 		<div class="form-group">
 	    <label class="col-sm-3 control-label">Collaborators</label>
 	    <div class="col-sm-9">
-	      <select id="selectize-contact" class="form-control" name="collaborators" placeholder="Select contact..."></select>
+	      <select id="selectize-selectmultiple2" class="form-control" name="collaborators[]" id="collaborators" placeholder="Select contact..." multiple>
+            @foreach($collaborators_left as $user)
+              <option value="{{$user->id}}">{{$user->full_name}}</option>
+            @endforeach   	      	
+	      </select>
 	    </div>
 		</div>
       <div class="form-group">
